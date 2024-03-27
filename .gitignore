@@ -2,4 +2,8 @@
 node_modules
 .DS_Store
 .env
+<<<<<<< HEAD
 back-end/db/create-db-user.sql
+=======
+back-end/db/create-db-user-private.sql
+>>>>>>> adec713eab224ac6581244e6d36913922b7466bd
