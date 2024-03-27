@@ -22,6 +22,7 @@ CREATE TABLE entries (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+-- mostly comes from kubios?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!???
 CREATE TABLE measurements (
     measurement_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
