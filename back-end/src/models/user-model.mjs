@@ -124,4 +124,5 @@ export {
   updateUserById,
   deleteUserById,
   selectUserByUsername,
+  selectUserByEmail,
 };

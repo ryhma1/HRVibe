@@ -14,6 +14,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import 'dotenv/config';
+import {getMe, postLogin } from '../kubios-auth-controller.mjs';
 import {selectUserByUsername} from '../models/user-model.mjs';
 import {customError} from '../middlewares/error-handler.mjs';
 

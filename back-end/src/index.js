@@ -8,6 +8,7 @@ import entryRouter from './routes/entry-router.mjs';
 import cors from 'cors';
 import logger from './middlewares/logger.mjs';
 import authRouter from './routes/auth-router.mjs';
+import kubiosRouter from './routes/kubios-router.mjs';
 import {errorHandler, notFoundHandler} from './middlewares/error-handler.mjs';
 const hostname = '127.0.0.1';
 const port = 3001;
