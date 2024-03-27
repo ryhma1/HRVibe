@@ -2,3 +2,4 @@
 node_modules
 .DS_Store
 .env
+back-end/db/create-db-user-private.sql
