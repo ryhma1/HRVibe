@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-03-25T15:23:55.340711" rpa="false" schemaversion="5">
+<suite id="s1" name="Browser Demo" source="/Users/Silva/Documents/HYTE-K24/periodi - 4/Projekti - Terveyssovelluyksen kehitys/Testaus/robot/browser_demo.robot">
+<test id="s1-t1" name="Test Web Form" line="6">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-03-25T15:23:55.452852" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/Silva/Documents/HYTE-K24/periodi - 4/Projekti - Terveyssovelluyksen kehitys/Testaus/robot/browser/traces/e217caa9-848c-40a6-8be4-8f259d45981a"}</msg>
+<msg time="2024-03-25T15:23:55.453255" level="INFO">Starting Browser process /Users/Silva/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js using port 50989</msg>
+<msg time="2024-03-25T15:23:55.453279" level="INFO">Node startup parameters: ['node', '/Users/Silva/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js', '50989']</msg>
+<msg time="2024-03-25T15:23:57.044451" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/Silva/Documents/HYTE-K24/periodi - 4/Projekti - Terveyssovelluyksen kehitys/Testaus/robot/browser/traces/e217caa9-848c-40a6-8be4-8f259d45981a"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-03-25T15:23:55.452513" elapsed="1.592544"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-03-25T15:23:58.087752" level="INFO">Successfully initialized new page object and opened url: https://hyte-server.northeurope.cloudapp.azure.com/</msg>
+<msg time="2024-03-25T15:23:58.087811" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>https://hyte-server.northeurope.cloudapp.azure.com/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-03-25T15:23:57.045772" elapsed="1.042158"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2024-03-25T15:23:58.093128" level="INFO">Title: 'Vital Track'</msg>
+<arg>==</arg>
+<arg>Vital Track</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-03-25T15:23:58.088153" elapsed="0.005056"/>
+</kw>
+<kw name="Click With Options" owner="Browser">
+<arg>id=loginButton</arg>
+<arg>delay=1s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-25T15:23:58.093363" elapsed="1.179488"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2024-03-25T15:23:59.273704" level="INFO">Types the text 'soni' in the given field.</msg>
+<arg>[id=käyttis]</arg>
+<arg>${Username}</arg>
+<arg>delay=0.1s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-03-25T15:23:59.273159" elapsed="0.427613"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>[id=passis]</arg>
+<arg>$Password</arg>
+<arg>delay=0.1s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2024-03-25T15:23:59.701654" elapsed="1.062886"/>
+</kw>
+<kw name="Click With Options" owner="Browser">
+<arg>css=.loginuser</arg>
+<arg>delay=1s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-25T15:24:00.765807" elapsed="1.034761"/>
+</kw>
+<status status="PASS" start="2024-03-25T15:23:55.452030" elapsed="6.349067"/>
+</test>
+<status status="PASS" start="2024-03-25T15:23:55.341400" elapsed="6.466477"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Browser Demo">Browser Demo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
