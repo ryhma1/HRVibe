@@ -1,4 +1,4 @@
-import "./style.css";
+import "/assets/css/main.css";
 import { fetchData } from "./fetch.js";
 
 //
