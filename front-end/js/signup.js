@@ -3,18 +3,20 @@ import { fetchData } from "./fetch.js";
 
 //
 // CREATE USER
-const createUserButton = document.querySelector(".button.alt"); // Selecting the sign-up button
+const signupForm = document.getElementById("signupForm"); // Selecting the sign-up form
+const signupButton = document.querySelector(".signup-button"); // Selecting the sign-up button
 
-createUserButton.addEventListener("click", async (evt) => {
+signupForm.addEventListener("submit", async (evt) => {
   evt.preventDefault();
   console.log("Creating user");
 
   const url = "/api/users";
 
-  const form = document.querySelector("#main .box"); // Selecting the sign-up form within the main section
-  const email = form.querySelector("input[name=email]").value;
-  const password = form.querySelector("input[name=password]").value;
-  const passwordConfirm = form.querySelector("input[name=password-confirm]").value; // Selecting the confirmation password input field
+  const formData = new FormData(signupForm);
+
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const passwordConfirm = formData.get("password-confirm");
 
   if (password !== passwordConfirm) {
     alert("Passwords do not match. Please try again.");

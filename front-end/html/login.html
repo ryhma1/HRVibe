@@ -41,41 +41,47 @@
           <div class="col-12">
             <!-- Text -->
             <section class="box">
-              <p>Email</p>
-              <div class="col-6 col-12-mobilep">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value=""
-                  placeholder="Email"
-                />
-              </div>
-              <br />
-              <p>Password</p>
-              <div class="col-6 col-12-mobilep">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value=""
-                  placeholder="Password"
-                />
-              </div>
-              <br>
-              <p>
-                <i
-                  >Don't have an account?<a href="signup.html"
-                    ><b> Sign up</b></a
-                  ></i
-                >
-              </p>
-              <p></p>
-              <div>
-                <ul class="actions special">
-                  <li><a href="logged-index.html" class="button alt">Log In</a></li>
-                </ul>
-              </div>
+              <form action="loginForm">
+                <p>Email</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value=""
+                    placeholder="Email"
+                  />
+                </div>
+                <br />
+                <p>Password</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    value=""
+                    placeholder="Password"
+                  />
+                </div>
+                <br />
+                <p>
+                  <i
+                    >Don't have an account?<a href="signup.html"
+                      ><b> Sign up</b></a
+                    ></i
+                  >
+                </p>
+                <p></p>
+                <div>
+                  <ul class="actions special">
+                    <li>
+                      <button type="submit" class="button alt login-button">
+                        Log In
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </form>
             </section>
           </div>
         </div>
