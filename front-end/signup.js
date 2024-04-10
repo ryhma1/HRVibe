@@ -65,7 +65,7 @@ createUserButton.addEventListener("click", async (evt) => {
 
       if (loginResponse.ok) {
         localStorage.setItem("token", loginResponseData.token);
-        window.location.href = "tracking.html"; // Redirect to logged-in page
+        window.location.href = "logged-index.html"; // Redirect to logged-in page
       } else {
         throw new Error(`HTTP error! status: ${loginResponse.status}`);
       }

@@ -36,7 +36,7 @@ loginUser.addEventListener("click", async (evt) => {
       // Store the token in localStorage
       localStorage.setItem("token", responseData.token);
       // alert("Login successful!");
-      window.location.href = "tracking.html"; // Redirect to logged-in page
+      window.location.href = "logged-index.html"; // Redirect to logged-in page
     } else {
       // Handle login failure
       console.error("Login failed:", responseData.error);
