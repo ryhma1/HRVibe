@@ -1,4 +1,4 @@
 # HRVibe
 
 
-iha v**un sekasi 
+iha sekasi 
