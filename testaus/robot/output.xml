@@ -1,574 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-04-11T09:33:58.980263" rpa="false" schemaversion="5">
-<suite id="s1" name="Requests" source="/Users/Silva/Documents/HYTE-K24/periodi - 4/HRVibe/testaus/robot/requests.robot">
-<test id="s1-t1" name="Quick Get Request Test" line="6">
+<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-04-11T11:58:06.392898" rpa="false" schemaversion="5">
+<suite id="s1" name="Restful Booker" source="/Users/Silva/Documents/HYTE-K24/periodi - 4/HRVibe/testaus/robot/restful_booker.robot">
+<kw name="Authenticate as Admin" owner="restful_booker_keywords" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-11T11:58:06.466556" level="INFO">${body} = {'username': 'soni', 'password': 'soninkarva'}</msg>
+<var>${body}</var>
+<arg>username=soni</arg>
+<arg>password=soninkarva</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-11T11:58:06.466360" elapsed="0.000212"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-11T11:58:07.107313" level="INFO">POST Request : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
+ path_url=/api/auth/login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/json'} 
+ body=b'{"username": "soni", "password": "soninkarva"}' 
+ </msg>
+<msg time="2024-04-11T11:58:07.107815" level="INFO">POST Response : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 11 Apr 2024 08:58:09 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '455', 'ETag': 'W/"1c7-AudPzMdNNr+iPXTwT9dRc2ECjFc"', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive'} 
+ body={"message":"Logged in successfully","user":{"user_id":3,"username":"soni","email":"soni@gmail.com","created_at":"2024-03-19T08:10:23.000Z","user_level":"admin"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI6MTcxMjgyNTg4OSwiZXhwIjoxNzEyOTEyMjg5fQ.dHZndoSL4UpEvHY7_aUE5eSqyQ6xPmeq2-HSad8yyFI"} 
+ </msg>
+<msg time="2024-04-11T11:58:07.108433" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-04-11T11:58:06.466640" elapsed="0.641867"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.110809" level="INFO">{'message': 'Logged in successfully', 'user': {'user_id': 3, 'username': 'soni', 'email': 'soni@gmail.com', 'created_at': '2024-03-19T08:10:23.000Z', 'user_level': 'admin'}, 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI6MTcxMjgyNTg4OSwiZXhwIjoxNzEyOTEyMjg5fQ.dHZndoSL4UpEvHY7_aUE5eSqyQ6xPmeq2-HSad8yyFI'}</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.109374" elapsed="0.001540"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.112244" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI...</msg>
+<var>${token}</var>
+<arg>${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.111309" elapsed="0.000978"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.112697" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI6MTcxMjgyNTg4OSwiZXhwIjoxNzEyOTEyMjg5fQ.dHZndoSL4UpEvHY7_aUE5eSqyQ6xPmeq2-HSad8yyFI</msg>
+<arg>${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.112491" elapsed="0.000269"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.113287" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI...</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.112943" elapsed="0.000420"/>
+</kw>
+<status status="PASS" start="2024-04-11T11:58:06.466056" elapsed="0.647485"/>
+</kw>
+<test id="s1-t1" name="Get Diary Entries from Server" line="11">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.115698" level="INFO">${header} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfb...</msg>
+<var>${header}</var>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.114856" elapsed="0.000900"/>
+</kw>
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-11T09:33:59.199153" level="INFO">GET Request : url=https://www.google.com/ 
- path_url=/ 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+<msg time="2024-04-11T11:58:07.554377" level="INFO">GET Request : url=https://hyte-server.northeurope.cloudapp.azure.com/api/entries 
+ path_url=/api/entries 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI6MTcxMjgyNTg4OSwiZXhwIjoxNzEyOTEyMjg5fQ.dHZndoSL4UpEvHY7_aUE5eSqyQ6xPmeq2-HSad8yyFI'} 
  body=None 
  </msg>
-<msg time="2024-04-11T09:33:59.199318" level="INFO">GET Response : url=https://www.google.com/ 
+<msg time="2024-04-11T11:58:07.554560" level="INFO">GET Response : url=https://hyte-server.northeurope.cloudapp.azure.com/api/entries 
  status=200, reason=OK 
- headers={'Date': 'Thu, 11 Apr 2024 06:33:59 GMT', 'Expires': '-1', 'Cache-Control': 'private, max-age=0', 'Content-Type': 'text/html; charset=ISO-8859-1', 'Content-Security-Policy-Report-Only': "object-src 'none';base-uri 'self';script-src 'nonce-90F9LsHCCc5c7PVd2bn9Gg' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp", 'P3P': 'CP="This is not a P3P policy! See g.co/p3phelp for more info."', 'Content-Encoding': 'gzip', 'Server': 'gws', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'Set-Cookie': 'SOCS=CAAaBgiA0NywBg; expires=Sun, 11-May-2025 06:33:59 GMT; path=/; domain=.google.com; Secure; SameSite=lax, AEC=AQTF6HxrrB7PPs0E-onD8I8-tN_qoIn-QDzkkvH1B1_e_abOl2N9X8FkMQ; expires=Tue, 08-Oct-2024 06:33:59 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax, __Secure-ENID=18.SE=OZ2w_NHWzhsyYk91-KMTpfikSSzB_4irVW-dF71p6ilkZ7K_cDN1uC_-tXN6uRj9NV2EiShEB-S3AdTuDUVRlHJrfgnYMvbv0gZQraQqjROPfx4GfIxHkbeuWsDfEkfIWjKiUzMSUWiMKlssocn6W9lNRa2mNJR94KVCbbwysaSSUM8Tce0; expires=Sun, 11-May-2025 22:52:17 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} 
- body=&lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="fi"&gt;&lt;head&gt;&lt;meta content="text/html; charset=UTF-8" http-equiv="Content-Type"&gt;&lt;meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce="90F9LsHCCc5c7PVd2bn9Gg"&gt;(function(){var _g={kEI:'V4QXZuKbHI-pxc8P1e2coA0',kEXPI:'0,202715,1162753,206,4804,2329828,643,361,424527,38927,14764,4998,58391,2891,11754,58892,8801,9708,230,107254,6624,7596,1,42154,2,39761,6700,31122,4568,6258,24670,59701,8155,23351,22435,9779,42459,20199,73178,3030,15816,1804,26407,8862,2413,9400,1635,13492,37564,5214731,1010,1346,852,146,5992324,2798624,40741,1,1,2,2,1,1,1,1,15,12,27982733,16673,43886,3,318,4,1281,3,2121778,2585,16815,1,3,23012532,12799,8409,16664,17450,10577,22872,13998,1922,10959,4832,1575,8049,2412,3384,5521,7432,2212,7968,213,391,7526,5328,2777,1724,5,125,5086,8672,162,15841,4429,583,4843,2023,5094,5896,360,17,216,1266,3,610,420,4456,124,32,2483,1709,1269,232,19,1172,637,3227,683,4556,1006,407,998,1482,28,2232,10,893,681,8,4280,903,110,1298,1426,1113,227,513,2,1,225,490,50,798,2,942,424,925,207,121,1402,4,1,6,372,884,540,1,5,130,57,5,24,1717,433,1,6,563,4,71,1116,293,1282,237,19,403,928,1,275,2,1737,461,392,2,4,209,925,286,205,730,2,836,2790,1697,470,290,212,188,883,2,443,1090,39,96,360,111,194,345,29,374,124,301,78,386,2,23,12,3,133,36,299,137,727,216,278,881,305,1104,1,3,422,659,133,105,411,815,4,413,336,656,41,292,128,144,1413,64,756,622,544,245,2,2,447,1301,331,14,10,1968,718,7,182,408,12,1405,125,217,1377,335,12,3,21643220,3,3769,3089,1436,282,959,3,634,24,4,119,138,535,1824,654,3323367',kBL:'9yp2',kOPI:89978449};(function(){var a;(null==(a=window.google)?0:a.stvsc)?google.kEI=_g.kEI:window.google=_g;}).call(this);})();(function(){google.sn='webhp';google.kHL='fi';})();(function(){
-var h=this||self;function l(){return void 0!==window.google&amp;&amp;void 0!==window.google.kOPI&amp;&amp;0!==window.google.kOPI?window.google.kOPI:null};var m,n=[];function p(a){for(var b;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("eid")));)a=a.parentNode;return b||m}function q(a){for(var b=null;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("leid")));)a=a.parentNode;return b}function r(a){/^http:/i.test(a)&amp;&amp;"https:"===window.location.protocol&amp;&amp;(google.ml&amp;&amp;google.ml(Error("a"),!1,{src:a,glmm:1}),a="");return a}
-function t(a,b,c,d,k){var e="";-1===b.search("&amp;ei=")&amp;&amp;(e="&amp;ei="+p(d),-1===b.search("&amp;lei=")&amp;&amp;(d=q(d))&amp;&amp;(e+="&amp;lei="+d));d="";var g=-1===b.search("&amp;cshid=")&amp;&amp;"slh"!==a,f=[];f.push(["zx",Date.now().toString()]);h._cshid&amp;&amp;g&amp;&amp;f.push(["cshid",h._cshid]);c=c();null!=c&amp;&amp;f.push(["opi",c.toString()]);for(c=0;c&lt;f.length;c++){if(0===c||0&lt;c)d+="&amp;";d+=f[c][0]+"="+f[c][1]}return"/"+(k||"gen_204")+"?atyp=i&amp;ct="+String(a)+"&amp;cad="+(b+e+d)};m=google.kEI;google.getEI=p;google.getLEI=q;google.ml=function(){return null};google.log=function(a,b,c,d,k,e){e=void 0===e?l:e;c||(c=t(a,b,e,d,k));if(c=r(c)){a=new Image;var g=n.length;n[g]=a;a.onerror=a.onload=a.onabort=function(){delete n[g]};a.src=c}};google.logUrl=function(a,b){b=void 0===b?l:b;return t("",a,b)};}).call(this);(function(){google.y={};google.sy=[];google.x=function(a,b){if(a)var c=a.id;else{do c=Math.random();while(google.y[c])}google.y[c]=[a,b];return!1};google.sx=function(a){google.sy.push(a)};google.lm=[];google.plm=function(a){google.lm.push.apply(google.lm,a)};google.lq=[];google.load=function(a,b,c){google.lq.push([[a],b,c])};google.loadAll=function(a,b){google.lq.push([a,b])};google.bx=!1;google.lx=function(){};var d=[];google.fce=function(a,b,c,e){d.push([a,b,c,e])};google.qce=d;}).call(this);google.f={};(function(){
-document.documentElement.addEventListener("submit",function(b){var a;if(a=b.target){var c=a.getAttribute("data-submitfalse");a="1"===c||"q"===c&amp;&amp;!a.elements.q.value?!0:!1}else a=!1;a&amp;&amp;(b.preventDefault(),b.stopPropagation())},!0);document.documentElement.addEventListener("click",function(b){var a;a:{for(a=b.target;a&amp;&amp;a!==document.documentElement;a=a.parentElement)if("A"===a.tagName){a="1"===a.getAttribute("data-nohref");break a}a=!1}a&amp;&amp;b.preventDefault()},!0);}).call(this);&lt;/script&gt;&lt;style&gt;#gbar,#guser{font-size:13px;padding-top:1px !important;}#gbar{height:22px}#guser{padding-bottom:7px !important;text-align:right}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px}.gbh{height:0;position:absolute;top:24px;width:100%}@media all{.gb1{height:22px;margin-right:.5em;vertical-align:top}#gbar{float:left}}a.gb1,a.gb4{text-decoration:underline !important}a.gb1,a.gb4{color:#00c !important}.gbi .gb4{color:#dd8e27 !important}.gbf .gb4{color:#900 !important}
-&lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;overflow-y:scroll}#gog{padding:3px 8px 0}td{line-height:.8em}.gac_m td{line-height:17px}form{margin-bottom:20px}.h{color:#1967d2}em{font-weight:bold;font-style:normal}.lst{height:25px;width:496px}.gsfi,.lst{font:18px arial,sans-serif}.gsfs{font:17px arial,sans-serif}.ds{display:inline-box;display:inline-block;margin:3px 0 4px;margin-left:4px}input{font-family:inherit}body{background:#fff;color:#000}a{color:#681da8;text-decoration:none}a:hover,a:active{text-decoration:underline}.fl a{color:#1967d2}a:visited{color:#681da8}.sblc{padding-top:5px}.sblc a{display:block;margin:2px 0;margin-left:13px;font-size:11px}.lsbb{background:#f8f9fa;border:solid 1px;border-color:#dadce0 #70757a #70757a #dadce0;height:30px}.lsbb{display:block}#WqQANb a{display:inline-block;margin:0 12px}.lsb{background:url(/images/nav_logo229.png) 0 -261px repeat-x;color:#000;border:none;cursor:pointer;height:30px;margin:0;outline:0;font:15px arial,sans-serif;vertical-align:top}.lsb:active{background:#dadce0}.lst:focus{outline:none}.Ucigb{width:458px}&lt;/style&gt;&lt;script nonce="90F9LsHCCc5c7PVd2bn9Gg"&gt;(function(){window.google.erd={jsr:1,bv:1986,de:true};
-var h=this||self;var k,l=null!=(k=h.mei)?k:1,n,p=null!=(n=h.sdo)?n:!0,q=0,r,t=google.erd,v=t.jsr;google.ml=function(a,b,d,m,e){e=void 0===e?2:e;b&amp;&amp;(r=a&amp;&amp;a.message);void 0===d&amp;&amp;(d={});d.cad="ple_"+google.ple+".aple_"+google.aple;if(google.dl)return google.dl(a,e,d),null;b=d;if(0&gt;v){window.console&amp;&amp;console.error(a,b);if(-2===v)throw a;b=!1}else b=!a||!a.message||"Error loading script"===a.message||q&gt;=l&amp;&amp;!m?!1:!0;if(!b)return null;q++;d=d||{};b=encodeURIComponent;var c="/gen_204?atyp=i&amp;ei="+b(google.kEI);google.kEXPI&amp;&amp;(c+="&amp;jexpid="+b(google.kEXPI));c+="&amp;srcpg="+b(google.sn)+"&amp;jsr="+b(t.jsr)+"&amp;bver="+
-b(t.bv);var f=a.lineNumber;void 0!==f&amp;&amp;(c+="&amp;line="+f);var g=a.fileName;g&amp;&amp;(0&lt;g.indexOf("-extension:/")&amp;&amp;(e=3),c+="&amp;script="+b(g),f&amp;&amp;g===window.location.href&amp;&amp;(f=document.documentElement.outerHTML.split("\n")[f],c+="&amp;cad="+b(f?f.substring(0,300):"No script found.")));google.ple&amp;&amp;1===google.ple&amp;&amp;(e=2);c+="&amp;jsel="+e;for(var u in d)c+="&amp;",c+=b(u),c+="=",c+=b(d[u]);c=c+"&amp;emsg="+b(a.name+": "+a.message);c=c+"&amp;jsst="+b(a.stack||"N/A");12288&lt;=c.length&amp;&amp;(c=c.substr(0,12288));a=c;m||google.log(0,"",a);return a};window.onerror=function(a,b,d,m,e){r!==a&amp;&amp;(a=e instanceof Error?e:Error(a),void 0===d||"lineNumber"in a||(a.lineNumber=d),void 0===b||"fileName"in a||(a.fileName=b),google.ml(a,!1,void 0,!1,"SyntaxError"===a.name||"SyntaxError"===a.message.substring(0,11)||-1!==a.message.indexOf("Script error")?3:0));r=null;p&amp;&amp;q&gt;=l&amp;&amp;(window.onerror=null)};})();&lt;/script&gt;&lt;/head&gt;&lt;body bgcolor="#fff"&gt;&lt;script nonce="90F9LsHCCc5c7PVd2bn9Gg"&gt;(function(){var src='/images/nav_logo229.png';var iesg=false;document.body.onload = function(){window.n &amp;&amp; window.n();if (document.images){new Image().src=src;}
-if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.focus();}
-}
-})();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Haku&lt;/b&gt; &lt;a class=gb1 href="https://www.google.com/imghp?hl=fi&amp;tab=wi"&gt;Kuvahaku&lt;/a&gt; &lt;a class=gb1 href="https://maps.google.fi/maps?hl=fi&amp;tab=wl"&gt;Maps&lt;/a&gt; &lt;a class=gb1 href="https://play.google.com/?hl=fi&amp;tab=w8"&gt;Play&lt;/a&gt; &lt;a class=gb1 href="https://www.youtube.com/?tab=w1"&gt;YouTube&lt;/a&gt; &lt;a class=gb1 href="https://news.google.com/?tab=wn"&gt;Uutiset&lt;/a&gt; &lt;a class=gb1 href="https://mail.google.com/mail/?tab=wm"&gt;Gmail&lt;/a&gt; &lt;a class=gb1 href="https://drive.google.com/?tab=wo"&gt;Drive&lt;/a&gt; &lt;a class=gb1 style="text-decoration:none" href="https://www.google.fi/intl/fi/about/products?tab=wh"&gt;&lt;u&gt;Lisää&lt;/u&gt; &amp;raquo;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div id=guser width=100%&gt;&lt;nobr&gt;&lt;span id=gbn class=gbi&gt;&lt;/span&gt;&lt;span id=gbf class=gbf&gt;&lt;/span&gt;&lt;span id=gbe&gt;&lt;/span&gt;&lt;a href="http://www.google.fi/history/optout?hl=fi" class=gb4&gt;Verkkohistoria&lt;/a&gt; | &lt;a  href="/preferences?hl=fi" class=gb4&gt;Asetukset&lt;/a&gt; | &lt;a target=_top id=gb_70 href="https://accounts.google.com/ServiceLogin?hl=fi&amp;passive=true&amp;continue=https://www.google.com/&amp;ec=GAZAAQ" class=gb4&gt;Kirjaudu&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div class=gbh style=left:0&gt;&lt;/div&gt;&lt;div class=gbh style=right:0&gt;&lt;/div&gt;&lt;/div&gt;&lt;center&gt;&lt;br clear="all" id="lgpd"&gt;&lt;div id="lga"&gt;&lt;img alt="Google" height="92" src="/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png" style="padding:28px 0 14px" width="272" id="hplogo"&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;form action="/search" name="f"&gt;&lt;table cellpadding="0" cellspacing="0"&gt;&lt;tr valign="top"&gt;&lt;td width="25%"&gt;&amp;nbsp;&lt;/td&gt;&lt;td align="center" nowrap=""&gt;&lt;input name="ie" value="ISO-8859-1" type="hidden"&gt;&lt;input value="fi" name="hl" type="hidden"&gt;&lt;input name="source" type="hidden" value="hp"&gt;&lt;input name="biw" type="hidden"&gt;&lt;input name="bih" type="hidden"&gt;&lt;div class="ds" style="height:32px;margin:4px 0"&gt;&lt;div style="position:relative;zoom:1"&gt;&lt;input class="lst Ucigb" style="margin:0;padding:5px 8px 0 6px;vertical-align:top;color:#000;padding-right:38px" autocomplete="off" value="" title="Google-haku" maxlength="2048" name="q" size="57"&gt;&lt;img src="/textinputassistant/tia.png" style="position:absolute;cursor:pointer;right:5px;top:4px;z-index:300" data-script-url="/textinputassistant/13/fi_tia.js" id="tsuid_1" alt="" height="23" width="27"&gt;&lt;script nonce="90F9LsHCCc5c7PVd2bn9Gg"&gt;(function(){var id='tsuid_1';document.getElementById(id).onclick = function(){var s = document.createElement('script');s.src = this.getAttribute('data-scr... (set the log level to DEBUG or TRACE to see the full content) 
+ headers={'Date': 'Thu, 11 Apr 2024 08:58:09 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '452', 'ETag': 'W/"1c4-Z7TpSYb1AL6ngazHpYu3+rkFnxY"', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive'} 
+ body=[{"entry_id":4,"user_id":3,"mood":"hungry","sleep_hours":16,"notes":"missing meatball, tail wagging","created_at":"2024-03-19T08:27:45.000Z"},{"entry_id":5,"user_id":3,"mood":"happy","sleep_hours":18,"notes":"went on a long walk, peed on a lot of trees","created_at":"2024-03-19T08:27:57.000Z"},{"entry_id":6,"user_id":3,"mood":"depressed","sleep_hours":11,"notes":"mom left, prolly never coming back again :(","created_at":"2024-03-19T08:28:12.000Z"}] 
  </msg>
-<msg time="2024-04-11T09:33:59.199739" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-04-11T11:58:07.554795" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>https://www.google.com</arg>
+<arg>${BASE_URL}/api/entries</arg>
+<arg>headers=${header}</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-11T09:33:59.044069" elapsed="0.155701"/>
+<status status="PASS" start="2024-04-11T11:58:07.116144" elapsed="0.438692"/>
 </kw>
-<status status="PASS" start="2024-04-11T09:33:59.043732" elapsed="0.156262"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.555513" level="INFO">&lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.555256" elapsed="0.000320"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.556581" level="INFO">${entries} = [{'entry_id': 4, 'user_id': 3, 'mood': 'hungry', 'sleep_hours': 16, 'notes': 'missing meatball, tail wagging', 'created_at': '2024-03-19T08:27:45.000Z'}, {'entry_id': 5, 'user_id': 3, 'mood': 'happy',...</msg>
+<var>${entries}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.555781" elapsed="0.000836"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.557113" level="INFO">[{'entry_id': 4, 'user_id': 3, 'mood': 'hungry', 'sleep_hours': 16, 'notes': 'missing meatball, tail wagging', 'created_at': '2024-03-19T08:27:45.000Z'}, {'entry_id': 5, 'user_id': 3, 'mood': 'happy', 'sleep_hours': 18, 'notes': 'went on a long walk, peed on a lot of trees', 'created_at': '2024-03-19T08:27:57.000Z'}, {'entry_id': 6, 'user_id': 3, 'mood': 'depressed', 'sleep_hours': 11, 'notes': 'mom left, prolly never coming back again :(', 'created_at': '2024-03-19T08:28:12.000Z'}]</msg>
+<arg>${entries}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.556918" elapsed="0.000261"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.557368" elapsed="0.000170"/>
+</kw>
+<status status="PASS" start="2024-04-11T11:58:07.113763" elapsed="0.444015"/>
 </test>
-<test id="s1-t2" name="Quick Get Request With Parameters Test" line="9">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-11T09:33:59.618817" level="INFO">GET Request : url=https://www.google.com/search?query=ciao (redirected) 
- path_url=/search?query=ciao 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
+<test id="s1-t2" name="Create a Diary Entry on Server" line="19">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.558913" level="INFO">${header} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfb...</msg>
+<var>${header}</var>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.558543" elapsed="0.000405"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-11T11:58:07.559405" level="INFO">${data} = {'mood': 'good', 'sleep': '9', 'notes': 'slept well'}</msg>
+<var>${data}</var>
+<arg>mood=good</arg>
+<arg>sleep=9</arg>
+<arg>notes=slept well</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.559145" elapsed="0.000292"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-11T11:58:08.088148" level="INFO">POST Request : url=https://hyte-server.northeurope.cloudapp.azure.com/api/entries 
+ path_url=/api/entries 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI6MTcxMjgyNTg4OSwiZXhwIjoxNzEyOTEyMjg5fQ.dHZndoSL4UpEvHY7_aUE5eSqyQ6xPmeq2-HSad8yyFI', 'Content-Length': '53', 'Content-Type': 'application/json'} 
+ body=b'{"mood": "good", "sleep": "9", "notes": "slept well"}' 
  </msg>
-<msg time="2024-04-11T09:33:59.619248" level="INFO">GET Response : url=https://consent.google.com/ml?continue=https://www.google.com/search%3Fquery%3Dciao&amp;gl=FI&amp;m=0&amp;pc=srp&amp;uxe=none&amp;cm=2&amp;hl=fi&amp;src=1 
- status=200, reason=OK 
- headers={'Content-Type': 'text/html; charset=utf-8', 'Vary': 'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Date': 'Thu, 11 Apr 2024 06:33:59 GMT', 'Cross-Origin-Resource-Policy': 'same-site', 'Accept-CH': 'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factor, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version', 'Permissions-Policy': 'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factor=*, ch-ua-platform=*, ch-ua-platform-version=*', 'Content-Security-Policy': "require-trusted-types-for 'script';report-uri /_/ConsentHttp/cspreport, script-src 'nonce-VTKM4fbVRYbO9O7ijT613w' 'unsafe-inline';object-src 'none';base-uri 'self';report-uri /_/ConsentHttp/cspreport;worker-src 'self'", 'Cross-Origin-Opener-Policy': 'unsafe-none', 'reporting-endpoints': 'default="/_/ConsentHttp/web-reports?context=eJzj8tDikmLw05BiePflJZPA15dMEkCsBcR866azqgCx4frprJFA7JQ-gzUEiH3qZ7DGAXHrzXOs04E46d951hIgFuLhuN5xbwObwIGt6_YwAwDb8iRP"', 'Content-Encoding': 'gzip', 'Server': 'ESF', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} 
- body=&lt;!DOCTYPE html&gt;&lt;html lang="fi" dir="ltr"&gt;&lt;head&gt;&lt;style nonce="Ky85eTK0IVWj7CGkyAaXCw"&gt;
-a, a:link, a:visited, a:active, a:hover {
-  color: #1a73e8;
-  text-decoration: none;
-}
-body {
-  font-family: Roboto,Helvetica,Arial,sans-serif;
-  text-align: center;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-.box {
-  border: 1px solid #dadce0;
-  box-sizing: border-box;
-  border-radius: 8px;
-  margin: 24px auto 5px auto;
-  max-width: 800px;
-  padding: 24px;
-}
-.youtubeContainerUIModernization,
-.boxUIModernization {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 800px;
-}
-.signInContainerUIModernization {
-    display: flex;
-    justify-content: flex-end;
-}
-h1 {
-  color: #2c2c2c;
-  font-size: 24px;
-  hyphens: auto;
-  margin: 24px 0;
-}
-.icaCallout {
-  background-color: #f8f9fa;
-  padding: 12px 16px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.icaCalloutUIModernization {
-  color: #0f0f0f;
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0.2px;
-  background-color: #f8f9fa;
-  padding: 12px 24px;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  text-align: left;
-}
-.icaCalloutUIModernization &gt; a {
-  color: #065fd4;  /* youtube dark-blue color */
-}
-.subUIModernization,
-.contentTextUIModernization,
-.contentTextUIModernization &gt; p {
-  color: #0f0f0f;
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 18px;
-  text-align: left;
-}
-.contentTextUIModernization &gt; a,
-.contentTextUIModernization &gt; p &gt; a {
-  color: #065fd4;
-}
-.contentTextUIModernization &gt; p {
-  margin: 16px 0;
-}
-.contentTextUIModernization &gt; ul {
-  padding-left: 36px;
-  margin: 16px 0;
-}
-p, .sub, .contentText, .icaCallout {
-  color: #5f6368;;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.2px;
-  text-align: left;
-}
-.signin {
-  text-align: right;
-}
-.signInIconContainer {
-  width: 24px;
-  height: 24px;
-  margin: 0 6px 0 -6px;
-}
-.signInIcon {
-  fill: #065fd4; /* dark-blue-color */
-}
-.signinUIModernization {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  text-align: right;
-}
-.bulletUIModernization {
-  line-height: 18px;
-  margin: 8px 0;
-}
-.signinButtonDisplayUIModernization {
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-.horizontalContainerEndUIModernization {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.cardHeaderUIModernization {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.logoCenter {
-  justify-content: center;
-}
-.logoUIModernization {
-  margin-right: auto;
-}
-.youTubeHeaderUIModernization {
- padding: 20px 24px 0;
-}
-.saveButtonContainer,
-.saveButtonContainerNarrowScreen {
-  width: 100%;
-  margin-top: 12px;
-}
-.saveButtonContainerNarrowScreenUIModernization {
-  width: 100%;
-}
-.customButtonContainer {
-  height: 20px;
-  padding: 8px 0;
-  margin-top: 8px;
-}
-.navigationCtasYoutube {
-  text-align: right;
-}
-a.button {
-  color: #fff;
-}
-a.hairlinebutton,
-a.nolinebutton{
-  color: #1a73e8;
-}
-.navigationCtasYoutube a.hairlinebutton {
-  border-color: #1a73e8;
-}
-button, .button {
-  background-color: #1a73e8;
-  border: none;
-  color: #fff;
-}
-input.button {
-  -webkit-appearance: none;
-}
-.basebutton {
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: Roboto,Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  height: 36px;
-  margin: 12px 4px 0;
-  padding: 8px 24px;
-}
-.hairlinebutton {
-  background-color: #fff;
-  border-width: 1px;
-  border-color: #dadce0;
-  border-style: solid;
-  max-height: 15px;
-}
-.basebuttonUIModernization {
-  outline: none;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 18px;
-  cursor: pointer;
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  height: 36px;
-  min-width: 72px;
-  border-radius: 18px;
-  padding: 0 16px;
-}
-.signInButtonUIModernization {
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  color: #065fd4;
-  }
-.signInButtonUIModernization:focus-visible {
-  background-color: #fff;
-  border: 1px solid #065fd4;
-  color: #065fd4;
-}
-.signInButtonUIModernization:hover {
-  background-color: #f2f8ff;
-  border: 1px solid transparent;
-  color: #065fd4;
-}
-.signInButtonUIModernization:hover:focus-visible {
-  background-color: #f2f8ff;
-  border: 1px solid #065fd4;
-  color: #065fd4;
-}
-.signInButtonUIModernization:active,
-.signInButtonUIModernization:active:hover,
-.signInButtonUIModernization:active:focus-visible {
-  background-color: #e5e5e5;
-  border: 1px solid transparent;
-  color: #065fd4;
-}
-.signinUIModernization a,
-.signinUIModernization a:link,
-.signinUIModernization a:visited,
-.signinUIModernization a:active,
-.signinUIModernization a:hover,
-.signinUIModernization a:focus-visible {
-  color: #065fd4;
-}
-.hairlinebuttonUIModernization {
-  background-color: #0f0f0f;
-  border: 2px solid transparent;
-  color: #fff;
-  }
-.hairlinebuttonUIModernization:focus-visible {
-  background-color: #fff;
-  border: 2px solid #0f0f0f;
-  color: #0f0f0f;
-}
-.hairlinebuttonUIModernization:hover {
-  background-color: #272727;
-  border: 2px solid transparent;
-  color: #fff;
-}
-.hairlinebuttonUIModernization:hover:focus-visible {
-  background-color: #e7e7e7;
-  border: 2px solid transparent;
-  color: #0f0f0f;
-}
-.hairlinebuttonUIModernization:active,
-.hairlinebuttonUIModernization:active:hover,
-.hairlinebuttonUIModernization:active:focus-visible {
-  background-color: #3f3f3f;
-  border: 2px solid transparent;
-  color: #fff;
-}
-.customizeButtonContainerUIModernization {
-  display: flex;
-  text-align: center;
-}
-.customizeButtonUIModernization {
-  box-sizing: border-box;
-  background-color: #f2f2f2;
-  border: 2px solid transparent;
-  text-align: center;
-}
-.customizeButtonUIModernization:focus-visible {
-  background-color: #fff;
-  border: 2px solid #0f0f0f;
-}
-.customizeButtonUIModernization:hover {
-  background-color: #e6e6e6;
-  border: 2px solid transparent;
-}
-.customizeButtonUIModernization:active,
-.customizeButtonUIModernization:active:hover,
-.customizeButtonUIModernization:active:focus-visible {
-  background-color: #cfcfcf;
-  border: 2px solid transparent;
-}
-a.basebuttonUIModernization.customizeButtonUIModernization,
-a.basebuttonUIModernization.customizeButtonUIModernization:link,
-a.basebuttonUIModernization.customizeButtonUIModernization:visited,
-a.basebuttonUIModernization.customizeButtonUIModernization:active,
-a.basebuttonUIModernization.customizeButtonUIModernization:focus {
-  color: #0f0f0f;
-  text-decoration: none;
-  padding: 8px 16px;
-}
-.saveButtonUIModernization {
-  text-align: center;
-}
-.detailsButtonUIModernization {
-  margin-top: 16px;
-  min-width: 220px;
-}
-.error {
-  border: 2px solid #d93025;
-  border-radius: 5px;
-  color: #d93025;
-  margin: auto;
-  padding: 5px;
-}
-.box a:hover, .boxUIModernization a:hover, .detailspage a:hover {
-  text-decoration: underline;
-}
-.footer {
-  margin-top: 16px;
-}
-.footerLinks {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.footerUIModernization {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 16px;
-}
-.footer a {
-  margin-left: 24px;
-  white-space: nowrap;
-}
-.footer a, .footer select, .footer input {
-  color: #757575;
-  font-size: 12px;
-}
-.footerUIModernization a {
-  margin-left: 8px;
-  padding: 0 8px;
-}
-.footerUIModernization a,
-.footerUIModernization input,
-.footerUIModernization select {
-  color: #606060;  /* grey5 color - youtube secondary color */
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-}
-.footerUIModernization form {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.languagepicker {
-  display: inline-flex;
-  margin: 2px 0;
-}
-#languageform,
-#languageselect {
-  margin: 0 2px;
-}
-#languageselect {
-  color: #757575;
-}
-.detailspage {
-  margin: 24px auto 0 auto;
-  max-width: 700px;
-}
-.detailspage h1, .detailspage h2 {
-  font-size: 22px
-}
-.setting {
-  border: 1px solid #dadce0;
-  box-sizing: border-box;
-  border-radius: 8px;
-  margin-bottom: 11px;
-  padding: 24px 24px 20px 24px;
-  text-align: right;
-}
-.settingUIModernization {
-  border: 1px solid #dadce0;
-  box-sizing: border-box;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  padding: 24px;
-  text-align: right;
-}
-.sub {
-  padding: 24px 24px 20px 24px;
-}
-hr {
-  margin: 12px -24px 12px;
-  border: 0;
-  border-top: 1px solid #dadce0;
-}
-fieldset {
-  border: none;
-  padding: 0;
-}
-label {
-  margin: 24px;
-}
-td {
-  vertical-align: top;
-}
-.setting h2, .setting h3, h4 {
-  color: #3c4043;
-  margin: 0;
-  text-align: left;
-}
-.yt-text {
-  color: #5f6368;
-  font-size: 14px;
-  font-weight: 300;
-}
-.detailspageUIModernization {
-  margin: 0 auto;
-  max-width: 700px;
-}
-.subUIModernization &gt; ul &gt; li,
-.detailspageUIModernization p{
-  color: #606060;
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-}
-.detailspageUIModernization &gt; p,
-.settingUIModernization p,
-.subUIModernization &gt; p,
-.subUIModernization &gt; ul {
-  margin: 16px 0;
-}
-.subUIModernization p:last-of-type {
-  margin-bottom: 0;
-}
-.settingUIModernization fieldset {
-  margin: 0;  /* removing the default margin of the fieldset element */
-}
-.subUIModernization &gt; ul {
-  padding-left: 36px;
-}
-.subUIModernization &gt; ul &gt; li {
-  line-height: 18px;
-  margin: 8px 0;
-}
-.detailspageUIModernization h1{
-  color: #0f0f0f;
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 30px;
-}
-.settingUIModernization h2 {
-  color: #0f0f0f;
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  margin: 0;
-  text-align: left;
-}
-.detailspageUIModernization h4 {
-  color: #0f0f0f;
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  margin: 0;
-  text-align: left;
-}
-.subUIModernization &gt; a,
-.subUIModernization &gt; p &gt; a,
-.detail... (set the log level to DEBUG or TRACE to see the full content) 
+<msg time="2024-04-11T11:58:08.088538" level="INFO">POST Response : url=https://hyte-server.northeurope.cloudapp.azure.com/api/entries 
+ status=201, reason=Created 
+ headers={'Date': 'Thu, 11 Apr 2024 08:58:10 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '44', 'ETag': 'W/"2c-9m1bLL71knCkfFHPpW00QDm2ZoI"', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive'} 
+ body={"message":"New entry added.","entry_id":29} 
  </msg>
-<msg time="2024-04-11T09:33:59.623146" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-04-11T11:58:08.092240" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
-<arg>https://www.google.com/search</arg>
-<arg>params=query=ciao</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-11T09:33:59.200673" elapsed="0.422532"/>
+<arg>${BASE_URL}/api/entries</arg>
+<arg>json=${data}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-04-11T11:58:07.559625" elapsed="0.532699"/>
 </kw>
-<status status="PASS" start="2024-04-11T09:33:59.200236" elapsed="0.423430"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-11T11:58:08.093655" level="INFO">&lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-11T11:58:08.093055" elapsed="0.000690"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-11T11:58:08.095175" level="INFO">${id} = {'message': 'New entry added.', 'entry_id': 29} [id]</msg>
+<var>${id}</var>
+<arg>${response.json()} [id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-11T11:58:08.094051" elapsed="0.001167"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-11T11:58:08.095711" level="INFO">{'message': 'New entry added.', 'entry_id': 29} [id]</msg>
+<arg>${id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-11T11:58:08.095477" elapsed="0.000310"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-04-11T11:58:08.096435" level="INFO">${id} = {'message': 'New entry added.', 'entry_id': 29} [id]</msg>
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-04-11T11:58:08.096041" elapsed="0.000462"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-11T11:58:08.096744" elapsed="0.000225"/>
+</kw>
+<status status="PASS" start="2024-04-11T11:58:07.558067" elapsed="0.539189"/>
 </test>
-<test id="s1-t3" name="Quick Get A JSON Body Test" line="12">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-11T09:33:59.791270" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/1 
- path_url=/posts/1 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2024-04-11T09:33:59.791347" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/1 
- status=200, reason=OK 
- headers={'Date': 'Thu, 11 Apr 2024 06:34:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1709255591&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;s=G6Oa%2FYpd7oj%2BrnHJw0Uv7Gn%2F%2BrDvXC4IwlylZgBnEZE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1709255591&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;s=G6Oa%2FYpd7oj%2BrnHJw0Uv7Gn%2F%2BrDvXC4IwlylZgBnEZE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1709255651', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '16372', 'Server': 'cloudflare', 'CF-RAY': '8728f2c69dd68f60-CPH', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
- body={
-  "userId": 1,
-  "id": 1,
-  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-} 
- </msg>
-<msg time="2024-04-11T09:33:59.791454" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>https://jsonplaceholder.typicode.com/posts/1</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-11T09:33:59.624924" elapsed="0.166548"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2024-04-11T09:33:59.792039" level="INFO">Argument types are:
-&lt;class 'str'&gt;
-&lt;class 'int'&gt;</msg>
-<arg>1</arg>
-<arg>${response.json()}[id]</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-04-11T09:33:59.791636" elapsed="0.000447"/>
-</kw>
-<status status="PASS" start="2024-04-11T09:33:59.624089" elapsed="0.168118"/>
-</test>
-<status status="PASS" start="2024-04-11T09:33:58.981022" elapsed="0.811446"/>
+<status status="PASS" start="2024-04-11T11:58:06.393853" elapsed="1.704321"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Requests">Requests</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Restful Booker">Restful Booker</stat>
 </suite>
 </statistics>
 <errors>
