@@ -1,123 +1,574 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-04-04T22:18:08.900088" rpa="false" schemaversion="5">
-<suite id="s1" name="Browser Demo" source="/Users/Silva/Documents/HYTE-K24/periodi - 4/HRVibe/testaus/robot/browser_demo.robot">
-<test id="s1-t1" name="Test Web Form" line="6">
-<kw name="New Browser" owner="Browser">
-<msg time="2024-04-04T22:18:09.056366" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/Silva/Documents/HYTE-K24/periodi - 4/HRVibe/testaus/robot/browser/traces/137ecde7-f1d8-41f0-ad40-86c45bb9ac85"}</msg>
-<msg time="2024-04-04T22:18:09.057122" level="INFO">Starting Browser process /Users/Silva/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js using port 54130</msg>
-<msg time="2024-04-04T22:18:09.057173" level="INFO">Node startup parameters: ['node', '/Users/Silva/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js', '54130']</msg>
-<msg time="2024-04-04T22:18:10.940625" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/Silva/Documents/HYTE-K24/periodi - 4/HRVibe/testaus/robot/browser/traces/137ecde7-f1d8-41f0-ad40-86c45bb9ac85"}</msg>
-<arg>chromium</arg>
-<arg>headless=No</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2024-04-04T22:18:09.055817" elapsed="1.885238"/>
+<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-04-11T09:27:34.339847" rpa="false" schemaversion="5">
+<suite id="s1" name="Requests" source="/Users/Silva/Documents/HYTE-K24/periodi - 4/HRVibe/testaus/robot/requests.robot">
+<test id="s1-t1" name="Quick Get Request Test" line="6">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-04-11T09:27:35.036013" level="INFO">GET Request : url=https://www.google.com/ 
+ path_url=/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-04-11T09:27:35.036481" level="INFO">GET Response : url=https://www.google.com/ 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 11 Apr 2024 06:27:35 GMT', 'Expires': '-1', 'Cache-Control': 'private, max-age=0', 'Content-Type': 'text/html; charset=ISO-8859-1', 'Content-Security-Policy-Report-Only': "object-src 'none';base-uri 'self';script-src 'nonce-McG9PVfO2F_rwsdU4CP7dQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp", 'P3P': 'CP="This is not a P3P policy! See g.co/p3phelp for more info."', 'Content-Encoding': 'gzip', 'Server': 'gws', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'Set-Cookie': 'SOCS=CAAaBgiA0NywBg; expires=Sun, 11-May-2025 06:27:35 GMT; path=/; domain=.google.com; Secure; SameSite=lax, AEC=AQTF6HxeJtRiIavi4oIeV9xM8bJvesNoTA_jO9FMB0Ji3XXuHCGjV1_LTFQ; expires=Tue, 08-Oct-2024 06:27:35 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax, __Secure-ENID=18.SE=gWzLfrQw89EIQcJu1zZ3Nu-adz21hRC1qa9ibgAtIYd1fGGfj5MKe84sWDq002gSqX3nGFamkuKVJtvaNy1UvMAOC_Q4WBLpVzsPACO_a_0qYePvB9EmvJKnE-yUUXYZnR_rly9dnJZUZ4al2Kn7g6pPTY5Ec2yM7a7rQlsOf_S91cUZpkU; expires=Sun, 11-May-2025 22:45:53 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} 
+ body=&lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="fi"&gt;&lt;head&gt;&lt;meta content="text/html; charset=UTF-8" http-equiv="Content-Type"&gt;&lt;meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce="McG9PVfO2F_rwsdU4CP7dQ"&gt;(function(){var _g={kEI:'14IXZt7BDfaPxc8PmrKYmAg',kEXPI:'0,1365468,206,4804,2329792,679,361,424527,53691,4998,55519,2872,2891,11754,30449,825,27618,2404,6398,9707,230,63352,14637,29232,6657,7596,1,42154,2,39761,6700,31121,4568,6256,24673,30151,13875,15675,8155,8861,14489,22436,9779,42459,20198,44509,28670,3030,15816,1804,21011,26071,1633,13495,31447,5221856,1347,852,146,5991646,678,2839365,1,2,1,2,3,1,7,8,12,20718606,7280799,43887,3,318,4,1281,3,2121778,2585,16815,1,3,23016649,1307,7375,8409,10889,5775,17450,3860,6717,1730,12298,8844,461,13537,1923,10958,4832,1575,13846,10051,2901,2212,3823,4,4141,214,389,7527,3764,1564,4501,5,5212,5735,3097,15841,434,3316,1,1224,34,6870,10990,360,15,225,1259,3,610,423,4453,124,32,2483,1710,1268,1423,638,3222,687,4557,203,802,1405,1511,2231,10,893,680,8,5183,110,67,1232,434,992,1113,227,741,281,209,49,469,330,3,1366,610,132,182,207,121,1436,4,1,6,338,864,567,1,5,180,5,25,1717,1077,345,4,1061,1281,218,441,465,451,2,1,9,1,1570,443,854,2,4,209,199,4,1008,935,2,3626,838,859,471,289,212,182,459,298,3,234,339,1026,149,411,111,539,29,375,124,265,35,57,20,387,1,47,13,3,109,36,436,24,700,12,207,275,683,1,6,194,70,235,420,427,257,1,3,473,608,650,859,2,370,336,656,42,211,207,39,106,1414,66,754,980,2,6,2,174,230,2,2,533,1191,318,43,14,1988,718,597,826,7,1,708,57,160,375,525,339,141,943,533,21642091,3,5247,1610,571,866,285,956,3,634,24,4,118,519,155,2449',kBL:'9yp2',kOPI:89978449};(function(){var a;(null==(a=window.google)?0:a.stvsc)?google.kEI=_g.kEI:window.google=_g;}).call(this);})();(function(){google.sn='webhp';google.kHL='fi';})();(function(){
+var h=this||self;function l(){return void 0!==window.google&amp;&amp;void 0!==window.google.kOPI&amp;&amp;0!==window.google.kOPI?window.google.kOPI:null};var m,n=[];function p(a){for(var b;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("eid")));)a=a.parentNode;return b||m}function q(a){for(var b=null;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("leid")));)a=a.parentNode;return b}function r(a){/^http:/i.test(a)&amp;&amp;"https:"===window.location.protocol&amp;&amp;(google.ml&amp;&amp;google.ml(Error("a"),!1,{src:a,glmm:1}),a="");return a}
+function t(a,b,c,d,k){var e="";-1===b.search("&amp;ei=")&amp;&amp;(e="&amp;ei="+p(d),-1===b.search("&amp;lei=")&amp;&amp;(d=q(d))&amp;&amp;(e+="&amp;lei="+d));d="";var g=-1===b.search("&amp;cshid=")&amp;&amp;"slh"!==a,f=[];f.push(["zx",Date.now().toString()]);h._cshid&amp;&amp;g&amp;&amp;f.push(["cshid",h._cshid]);c=c();null!=c&amp;&amp;f.push(["opi",c.toString()]);for(c=0;c&lt;f.length;c++){if(0===c||0&lt;c)d+="&amp;";d+=f[c][0]+"="+f[c][1]}return"/"+(k||"gen_204")+"?atyp=i&amp;ct="+String(a)+"&amp;cad="+(b+e+d)};m=google.kEI;google.getEI=p;google.getLEI=q;google.ml=function(){return null};google.log=function(a,b,c,d,k,e){e=void 0===e?l:e;c||(c=t(a,b,e,d,k));if(c=r(c)){a=new Image;var g=n.length;n[g]=a;a.onerror=a.onload=a.onabort=function(){delete n[g]};a.src=c}};google.logUrl=function(a,b){b=void 0===b?l:b;return t("",a,b)};}).call(this);(function(){google.y={};google.sy=[];google.x=function(a,b){if(a)var c=a.id;else{do c=Math.random();while(google.y[c])}google.y[c]=[a,b];return!1};google.sx=function(a){google.sy.push(a)};google.lm=[];google.plm=function(a){google.lm.push.apply(google.lm,a)};google.lq=[];google.load=function(a,b,c){google.lq.push([[a],b,c])};google.loadAll=function(a,b){google.lq.push([a,b])};google.bx=!1;google.lx=function(){};var d=[];google.fce=function(a,b,c,e){d.push([a,b,c,e])};google.qce=d;}).call(this);google.f={};(function(){
+document.documentElement.addEventListener("submit",function(b){var a;if(a=b.target){var c=a.getAttribute("data-submitfalse");a="1"===c||"q"===c&amp;&amp;!a.elements.q.value?!0:!1}else a=!1;a&amp;&amp;(b.preventDefault(),b.stopPropagation())},!0);document.documentElement.addEventListener("click",function(b){var a;a:{for(a=b.target;a&amp;&amp;a!==document.documentElement;a=a.parentElement)if("A"===a.tagName){a="1"===a.getAttribute("data-nohref");break a}a=!1}a&amp;&amp;b.preventDefault()},!0);}).call(this);&lt;/script&gt;&lt;style&gt;#gbar,#guser{font-size:13px;padding-top:1px !important;}#gbar{height:22px}#guser{padding-bottom:7px !important;text-align:right}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px}.gbh{height:0;position:absolute;top:24px;width:100%}@media all{.gb1{height:22px;margin-right:.5em;vertical-align:top}#gbar{float:left}}a.gb1,a.gb4{text-decoration:underline !important}a.gb1,a.gb4{color:#00c !important}.gbi .gb4{color:#dd8e27 !important}.gbf .gb4{color:#900 !important}
+&lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;overflow-y:scroll}#gog{padding:3px 8px 0}td{line-height:.8em}.gac_m td{line-height:17px}form{margin-bottom:20px}.h{color:#1967d2}em{font-weight:bold;font-style:normal}.lst{height:25px;width:496px}.gsfi,.lst{font:18px arial,sans-serif}.gsfs{font:17px arial,sans-serif}.ds{display:inline-box;display:inline-block;margin:3px 0 4px;margin-left:4px}input{font-family:inherit}body{background:#fff;color:#000}a{color:#681da8;text-decoration:none}a:hover,a:active{text-decoration:underline}.fl a{color:#1967d2}a:visited{color:#681da8}.sblc{padding-top:5px}.sblc a{display:block;margin:2px 0;margin-left:13px;font-size:11px}.lsbb{background:#f8f9fa;border:solid 1px;border-color:#dadce0 #70757a #70757a #dadce0;height:30px}.lsbb{display:block}#WqQANb a{display:inline-block;margin:0 12px}.lsb{background:url(/images/nav_logo229.png) 0 -261px repeat-x;color:#000;border:none;cursor:pointer;height:30px;margin:0;outline:0;font:15px arial,sans-serif;vertical-align:top}.lsb:active{background:#dadce0}.lst:focus{outline:none}.Ucigb{width:458px}&lt;/style&gt;&lt;script nonce="McG9PVfO2F_rwsdU4CP7dQ"&gt;(function(){window.google.erd={jsr:1,bv:1986,de:true};
+var h=this||self;var k,l=null!=(k=h.mei)?k:1,n,p=null!=(n=h.sdo)?n:!0,q=0,r,t=google.erd,v=t.jsr;google.ml=function(a,b,d,m,e){e=void 0===e?2:e;b&amp;&amp;(r=a&amp;&amp;a.message);void 0===d&amp;&amp;(d={});d.cad="ple_"+google.ple+".aple_"+google.aple;if(google.dl)return google.dl(a,e,d),null;b=d;if(0&gt;v){window.console&amp;&amp;console.error(a,b);if(-2===v)throw a;b=!1}else b=!a||!a.message||"Error loading script"===a.message||q&gt;=l&amp;&amp;!m?!1:!0;if(!b)return null;q++;d=d||{};b=encodeURIComponent;var c="/gen_204?atyp=i&amp;ei="+b(google.kEI);google.kEXPI&amp;&amp;(c+="&amp;jexpid="+b(google.kEXPI));c+="&amp;srcpg="+b(google.sn)+"&amp;jsr="+b(t.jsr)+"&amp;bver="+
+b(t.bv);var f=a.lineNumber;void 0!==f&amp;&amp;(c+="&amp;line="+f);var g=a.fileName;g&amp;&amp;(0&lt;g.indexOf("-extension:/")&amp;&amp;(e=3),c+="&amp;script="+b(g),f&amp;&amp;g===window.location.href&amp;&amp;(f=document.documentElement.outerHTML.split("\n")[f],c+="&amp;cad="+b(f?f.substring(0,300):"No script found.")));google.ple&amp;&amp;1===google.ple&amp;&amp;(e=2);c+="&amp;jsel="+e;for(var u in d)c+="&amp;",c+=b(u),c+="=",c+=b(d[u]);c=c+"&amp;emsg="+b(a.name+": "+a.message);c=c+"&amp;jsst="+b(a.stack||"N/A");12288&lt;=c.length&amp;&amp;(c=c.substr(0,12288));a=c;m||google.log(0,"",a);return a};window.onerror=function(a,b,d,m,e){r!==a&amp;&amp;(a=e instanceof Error?e:Error(a),void 0===d||"lineNumber"in a||(a.lineNumber=d),void 0===b||"fileName"in a||(a.fileName=b),google.ml(a,!1,void 0,!1,"SyntaxError"===a.name||"SyntaxError"===a.message.substring(0,11)||-1!==a.message.indexOf("Script error")?3:0));r=null;p&amp;&amp;q&gt;=l&amp;&amp;(window.onerror=null)};})();&lt;/script&gt;&lt;/head&gt;&lt;body bgcolor="#fff"&gt;&lt;script nonce="McG9PVfO2F_rwsdU4CP7dQ"&gt;(function(){var src='/images/nav_logo229.png';var iesg=false;document.body.onload = function(){window.n &amp;&amp; window.n();if (document.images){new Image().src=src;}
+if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.focus();}
+}
+})();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Haku&lt;/b&gt; &lt;a class=gb1 href="https://www.google.com/imghp?hl=fi&amp;tab=wi"&gt;Kuvahaku&lt;/a&gt; &lt;a class=gb1 href="https://maps.google.fi/maps?hl=fi&amp;tab=wl"&gt;Maps&lt;/a&gt; &lt;a class=gb1 href="https://play.google.com/?hl=fi&amp;tab=w8"&gt;Play&lt;/a&gt; &lt;a class=gb1 href="https://www.youtube.com/?tab=w1"&gt;YouTube&lt;/a&gt; &lt;a class=gb1 href="https://news.google.com/?tab=wn"&gt;Uutiset&lt;/a&gt; &lt;a class=gb1 href="https://mail.google.com/mail/?tab=wm"&gt;Gmail&lt;/a&gt; &lt;a class=gb1 href="https://drive.google.com/?tab=wo"&gt;Drive&lt;/a&gt; &lt;a class=gb1 style="text-decoration:none" href="https://www.google.fi/intl/fi/about/products?tab=wh"&gt;&lt;u&gt;Lisää&lt;/u&gt; &amp;raquo;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div id=guser width=100%&gt;&lt;nobr&gt;&lt;span id=gbn class=gbi&gt;&lt;/span&gt;&lt;span id=gbf class=gbf&gt;&lt;/span&gt;&lt;span id=gbe&gt;&lt;/span&gt;&lt;a href="http://www.google.fi/history/optout?hl=fi" class=gb4&gt;Verkkohistoria&lt;/a&gt; | &lt;a  href="/preferences?hl=fi" class=gb4&gt;Asetukset&lt;/a&gt; | &lt;a target=_top id=gb_70 href="https://accounts.google.com/ServiceLogin?hl=fi&amp;passive=true&amp;continue=https://www.google.com/&amp;ec=GAZAAQ" class=gb4&gt;Kirjaudu&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div class=gbh style=left:0&gt;&lt;/div&gt;&lt;div class=gbh style=right:0&gt;&lt;/div&gt;&lt;/div&gt;&lt;center&gt;&lt;br clear="all" id="lgpd"&gt;&lt;div id="lga"&gt;&lt;img alt="Google" height="92" src="/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png" style="padding:28px 0 14px" width="272" id="hplogo"&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;form action="/search" name="f"&gt;&lt;table cellpadding="0" cellspacing="0"&gt;&lt;tr valign="top"&gt;&lt;td width="25%"&gt;&amp;nbsp;&lt;/td&gt;&lt;td align="center" nowrap=""&gt;&lt;input name="ie" value="ISO-8859-1" type="hidden"&gt;&lt;input value="fi" name="hl" type="hidden"&gt;&lt;input name="source" type="hidden" value="hp"&gt;&lt;input name="biw" type="hidden"&gt;&lt;input name="bih" type="hidden"&gt;&lt;div class="ds" style="height:32px;margin:4px 0"&gt;&lt;div style="position:relative;zoom:1"&gt;&lt;input class="lst Ucigb" style="margin:0;padding:5px 8px 0 6px;vertical-align:top;color:#000;padding-right:38px" autocomplete="off" value="" title="Google-haku" maxlength="2048" name="q" size="57"&gt;&lt;img src="/textinputassistant/tia.png" style="position:absolute;cursor:pointer;right:5px;top:4px;z-index:300" data-script-url="/textinputassistant/13/fi_tia.js" id="tsuid_1" alt="" height="23" width="27"&gt;&lt;script nonce="McG9PVfO2F_rwsdU4CP7dQ"&gt;(function(){var id='tsuid_1';document.getElementById(id).onclick = function(){var s = document.c... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2024-04-11T09:27:35.037374" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://www.google.com</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-04-11T09:27:34.451658" elapsed="0.585786"/>
 </kw>
-<kw name="New Page" owner="Browser">
-<msg time="2024-04-04T22:18:11.972932" level="INFO">Successfully initialized new page object and opened url: https://hyte-server.northeurope.cloudapp.azure.com/</msg>
-<msg time="2024-04-04T22:18:11.973031" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<arg>https://hyte-server.northeurope.cloudapp.azure.com/</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<status status="PASS" start="2024-04-04T22:18:10.941618" elapsed="1.031552"/>
-</kw>
-<kw name="Get Title" owner="Browser">
-<msg time="2024-04-04T22:18:11.978083" level="INFO">Title: 'Vital Track'</msg>
-<arg>==</arg>
-<arg>Vital Track</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2024-04-04T22:18:11.973440" elapsed="0.004736"/>
-</kw>
-<kw name="Click With Options" owner="Browser">
-<arg>id=loginButton</arg>
-<arg>delay=1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2024-04-04T22:18:11.978387" elapsed="1.150718"/>
-</kw>
-<kw name="Type Text" owner="Browser">
-<msg time="2024-04-04T22:18:13.130300" level="INFO">Types the text 'soni' in the given field.</msg>
-<arg>[id=käyttis]</arg>
-<arg>${Username}</arg>
-<arg>delay=0.1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-04-04T22:18:13.129611" elapsed="0.429315"/>
-</kw>
-<kw name="Type Secret" owner="Browser">
-<arg>[id=passis]</arg>
-<arg>$Password</arg>
-<arg>delay=0.1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given secret from ``variable_name`` into the text field
-found by ``selector``.</doc>
-<status status="PASS" start="2024-04-04T22:18:13.559932" elapsed="1.065179"/>
-</kw>
-<kw name="Click With Options" owner="Browser">
-<arg>css=.loginuser</arg>
-<arg>delay=1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2024-04-04T22:18:14.626351" elapsed="1.055684"/>
-</kw>
-<kw name="Type Text" owner="Browser">
-<msg time="2024-04-04T22:18:15.683553" level="INFO">Types the text 'happy' in the given field.</msg>
-<arg>[id=mood]</arg>
-<arg>${Mood}</arg>
-<arg>delay=0.1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-04-04T22:18:15.682594" elapsed="0.865730"/>
-</kw>
-<kw name="Type Text" owner="Browser">
-<msg time="2024-04-04T22:18:16.551214" level="INFO">Types the text '8' in the given field.</msg>
-<arg>[id=sleep_hours]</arg>
-<arg>${SleepHours}</arg>
-<arg>delay=0.1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-04-04T22:18:16.549356" elapsed="0.125304"/>
-</kw>
-<kw name="Type Text" owner="Browser">
-<msg time="2024-04-04T22:18:16.675803" level="INFO">Types the text 'slept well, nothing else to add' in the given field.</msg>
-<arg>[id=notes]</arg>
-<arg>${Notes}</arg>
-<arg>delay=0.1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-04-04T22:18:16.675068" elapsed="3.221825"/>
-</kw>
-<kw name="Click With Option">
-<msg time="2024-04-04T22:18:19.901192" level="FAIL">No keyword with name 'Click With Option' found. Did you mean:
-    Browser.Click With Options</msg>
-<status status="FAIL" start="2024-04-04T22:18:19.901012" elapsed="0.000347">No keyword with name 'Click With Option' found. Did you mean:
-    Browser.Click With Options</status>
-</kw>
-<status status="FAIL" start="2024-04-04T22:18:09.055169" elapsed="10.846859">No keyword with name 'Click With Option' found. Did you mean:
-    Browser.Click With Options</status>
+<status status="PASS" start="2024-04-11T09:27:34.451317" elapsed="0.586734"/>
 </test>
-<status status="FAIL" start="2024-04-04T22:18:08.900928" elapsed="11.007441"/>
+<test id="s1-t2" name="Quick Get Request With Parameters Test" line="9">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-04-11T09:27:35.939680" level="INFO">GET Request : url=https://www.google.com/search?query=ciao (redirected) 
+ path_url=/search?query=ciao 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-04-11T09:27:35.940247" level="INFO">GET Response : url=https://consent.google.com/ml?continue=https://www.google.com/search%3Fquery%3Dciao&amp;gl=FI&amp;m=0&amp;pc=srp&amp;uxe=none&amp;cm=2&amp;hl=fi&amp;src=1 
+ status=200, reason=OK 
+ headers={'Content-Type': 'text/html; charset=utf-8', 'Vary': 'Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Date': 'Thu, 11 Apr 2024 06:27:36 GMT', 'Permissions-Policy': 'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factor=*, ch-ua-platform=*, ch-ua-platform-version=*', 'Cross-Origin-Opener-Policy': 'unsafe-none', 'Cross-Origin-Resource-Policy': 'same-site', 'Accept-CH': 'Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factor, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version', 'Content-Security-Policy': "script-src 'nonce-mFNchDm9B6Npk71wlRLAQQ' 'unsafe-inline';object-src 'none';base-uri 'self';report-uri /_/ConsentHttp/cspreport;worker-src 'self', require-trusted-types-for 'script';report-uri /_/ConsentHttp/cspreport", 'reporting-endpoints': 'default="/_/ConsentHttp/web-reports?context=eJzj8tDikmLw0ZBiePflJZPA15dMEkCsBcR866azqgCx4frprJFA7JQ-gzUEiH3qZ7DGAXHrzXOs04E46d951hIgFuLmuNF6bwObwIKnXSkAtlQj2w"', 'Content-Encoding': 'gzip', 'Server': 'ESF', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} 
+ body=&lt;!DOCTYPE html&gt;&lt;html lang="fi" dir="ltr"&gt;&lt;head&gt;&lt;style nonce="oQbp2v7ay_fpm_Nfr2E8Ow"&gt;
+a, a:link, a:visited, a:active, a:hover {
+  color: #1a73e8;
+  text-decoration: none;
+}
+body {
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  text-align: center;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+.box {
+  border: 1px solid #dadce0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin: 24px auto 5px auto;
+  max-width: 800px;
+  padding: 24px;
+}
+.youtubeContainerUIModernization,
+.boxUIModernization {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+.signInContainerUIModernization {
+    display: flex;
+    justify-content: flex-end;
+}
+h1 {
+  color: #2c2c2c;
+  font-size: 24px;
+  hyphens: auto;
+  margin: 24px 0;
+}
+.icaCallout {
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.icaCalloutUIModernization {
+  color: #0f0f0f;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  background-color: #f8f9fa;
+  padding: 12px 24px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.icaCalloutUIModernization &gt; a {
+  color: #065fd4;  /* youtube dark-blue color */
+}
+.subUIModernization,
+.contentTextUIModernization,
+.contentTextUIModernization &gt; p {
+  color: #0f0f0f;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 18px;
+  text-align: left;
+}
+.contentTextUIModernization &gt; a,
+.contentTextUIModernization &gt; p &gt; a {
+  color: #065fd4;
+}
+.contentTextUIModernization &gt; p {
+  margin: 16px 0;
+}
+.contentTextUIModernization &gt; ul {
+  padding-left: 36px;
+  margin: 16px 0;
+}
+p, .sub, .contentText, .icaCallout {
+  color: #5f6368;;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+.signin {
+  text-align: right;
+}
+.signInIconContainer {
+  width: 24px;
+  height: 24px;
+  margin: 0 6px 0 -6px;
+}
+.signInIcon {
+  fill: #065fd4; /* dark-blue-color */
+}
+.signinUIModernization {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+}
+.bulletUIModernization {
+  line-height: 18px;
+  margin: 8px 0;
+}
+.signinButtonDisplayUIModernization {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.horizontalContainerEndUIModernization {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.cardHeaderUIModernization {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logoCenter {
+  justify-content: center;
+}
+.logoUIModernization {
+  margin-right: auto;
+}
+.youTubeHeaderUIModernization {
+ padding: 20px 24px 0;
+}
+.saveButtonContainer,
+.saveButtonContainerNarrowScreen {
+  width: 100%;
+  margin-top: 12px;
+}
+.saveButtonContainerNarrowScreenUIModernization {
+  width: 100%;
+}
+.customButtonContainer {
+  height: 20px;
+  padding: 8px 0;
+  margin-top: 8px;
+}
+.navigationCtasYoutube {
+  text-align: right;
+}
+a.button {
+  color: #fff;
+}
+a.hairlinebutton,
+a.nolinebutton{
+  color: #1a73e8;
+}
+.navigationCtasYoutube a.hairlinebutton {
+  border-color: #1a73e8;
+}
+button, .button {
+  background-color: #1a73e8;
+  border: none;
+  color: #fff;
+}
+input.button {
+  -webkit-appearance: none;
+}
+.basebutton {
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  margin: 12px 4px 0;
+  padding: 8px 24px;
+}
+.hairlinebutton {
+  background-color: #fff;
+  border-width: 1px;
+  border-color: #dadce0;
+  border-style: solid;
+  max-height: 15px;
+}
+.basebuttonUIModernization {
+  outline: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 18px;
+  cursor: pointer;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  height: 36px;
+  min-width: 72px;
+  border-radius: 18px;
+  padding: 0 16px;
+}
+.signInButtonUIModernization {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  color: #065fd4;
+  }
+.signInButtonUIModernization:focus-visible {
+  background-color: #fff;
+  border: 1px solid #065fd4;
+  color: #065fd4;
+}
+.signInButtonUIModernization:hover {
+  background-color: #f2f8ff;
+  border: 1px solid transparent;
+  color: #065fd4;
+}
+.signInButtonUIModernization:hover:focus-visible {
+  background-color: #f2f8ff;
+  border: 1px solid #065fd4;
+  color: #065fd4;
+}
+.signInButtonUIModernization:active,
+.signInButtonUIModernization:active:hover,
+.signInButtonUIModernization:active:focus-visible {
+  background-color: #e5e5e5;
+  border: 1px solid transparent;
+  color: #065fd4;
+}
+.signinUIModernization a,
+.signinUIModernization a:link,
+.signinUIModernization a:visited,
+.signinUIModernization a:active,
+.signinUIModernization a:hover,
+.signinUIModernization a:focus-visible {
+  color: #065fd4;
+}
+.hairlinebuttonUIModernization {
+  background-color: #0f0f0f;
+  border: 2px solid transparent;
+  color: #fff;
+  }
+.hairlinebuttonUIModernization:focus-visible {
+  background-color: #fff;
+  border: 2px solid #0f0f0f;
+  color: #0f0f0f;
+}
+.hairlinebuttonUIModernization:hover {
+  background-color: #272727;
+  border: 2px solid transparent;
+  color: #fff;
+}
+.hairlinebuttonUIModernization:hover:focus-visible {
+  background-color: #e7e7e7;
+  border: 2px solid transparent;
+  color: #0f0f0f;
+}
+.hairlinebuttonUIModernization:active,
+.hairlinebuttonUIModernization:active:hover,
+.hairlinebuttonUIModernization:active:focus-visible {
+  background-color: #3f3f3f;
+  border: 2px solid transparent;
+  color: #fff;
+}
+.customizeButtonContainerUIModernization {
+  display: flex;
+  text-align: center;
+}
+.customizeButtonUIModernization {
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border: 2px solid transparent;
+  text-align: center;
+}
+.customizeButtonUIModernization:focus-visible {
+  background-color: #fff;
+  border: 2px solid #0f0f0f;
+}
+.customizeButtonUIModernization:hover {
+  background-color: #e6e6e6;
+  border: 2px solid transparent;
+}
+.customizeButtonUIModernization:active,
+.customizeButtonUIModernization:active:hover,
+.customizeButtonUIModernization:active:focus-visible {
+  background-color: #cfcfcf;
+  border: 2px solid transparent;
+}
+a.basebuttonUIModernization.customizeButtonUIModernization,
+a.basebuttonUIModernization.customizeButtonUIModernization:link,
+a.basebuttonUIModernization.customizeButtonUIModernization:visited,
+a.basebuttonUIModernization.customizeButtonUIModernization:active,
+a.basebuttonUIModernization.customizeButtonUIModernization:focus {
+  color: #0f0f0f;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+.saveButtonUIModernization {
+  text-align: center;
+}
+.detailsButtonUIModernization {
+  margin-top: 16px;
+  min-width: 220px;
+}
+.error {
+  border: 2px solid #d93025;
+  border-radius: 5px;
+  color: #d93025;
+  margin: auto;
+  padding: 5px;
+}
+.box a:hover, .boxUIModernization a:hover, .detailspage a:hover {
+  text-decoration: underline;
+}
+.footer {
+  margin-top: 16px;
+}
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerUIModernization {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.footer a {
+  margin-left: 24px;
+  white-space: nowrap;
+}
+.footer a, .footer select, .footer input {
+  color: #757575;
+  font-size: 12px;
+}
+.footerUIModernization a {
+  margin-left: 8px;
+  padding: 0 8px;
+}
+.footerUIModernization a,
+.footerUIModernization input,
+.footerUIModernization select {
+  color: #606060;  /* grey5 color - youtube secondary color */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+}
+.footerUIModernization form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.languagepicker {
+  display: inline-flex;
+  margin: 2px 0;
+}
+#languageform,
+#languageselect {
+  margin: 0 2px;
+}
+#languageselect {
+  color: #757575;
+}
+.detailspage {
+  margin: 24px auto 0 auto;
+  max-width: 700px;
+}
+.detailspage h1, .detailspage h2 {
+  font-size: 22px
+}
+.setting {
+  border: 1px solid #dadce0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 11px;
+  padding: 24px 24px 20px 24px;
+  text-align: right;
+}
+.settingUIModernization {
+  border: 1px solid #dadce0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 24px;
+  text-align: right;
+}
+.sub {
+  padding: 24px 24px 20px 24px;
+}
+hr {
+  margin: 12px -24px 12px;
+  border: 0;
+  border-top: 1px solid #dadce0;
+}
+fieldset {
+  border: none;
+  padding: 0;
+}
+label {
+  margin: 24px;
+}
+td {
+  vertical-align: top;
+}
+.setting h2, .setting h3, h4 {
+  color: #3c4043;
+  margin: 0;
+  text-align: left;
+}
+.yt-text {
+  color: #5f6368;
+  font-size: 14px;
+  font-weight: 300;
+}
+.detailspageUIModernization {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.subUIModernization &gt; ul &gt; li,
+.detailspageUIModernization p{
+  color: #606060;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+.detailspageUIModernization &gt; p,
+.settingUIModernization p,
+.subUIModernization &gt; p,
+.subUIModernization &gt; ul {
+  margin: 16px 0;
+}
+.subUIModernization p:last-of-type {
+  margin-bottom: 0;
+}
+.settingUIModernization fieldset {
+  margin: 0;  /* removing the default margin of the fieldset element */
+}
+.subUIModernization &gt; ul {
+  padding-left: 36px;
+}
+.subUIModernization &gt; ul &gt; li {
+  line-height: 18px;
+  margin: 8px 0;
+}
+.detailspageUIModernization h1{
+  color: #0f0f0f;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+.settingUIModernization h2 {
+  color: #0f0f0f;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+  text-align: left;
+}
+.detailspageUIModernization h4 {
+  color: #0f0f0f;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  text-align: left;
+}
+.subUIModernization &gt; a,
+.subUIModernization &gt; p &gt; a,
+.detail... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2024-04-11T09:27:35.944019" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://www.google.com/search</arg>
+<arg>params=query=ciao</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-04-11T09:27:35.039623" elapsed="0.904463"/>
+</kw>
+<status status="PASS" start="2024-04-11T09:27:35.038573" elapsed="0.905996"/>
+</test>
+<test id="s1-t3" name="Quick Get A JSON Body Test" line="12">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-04-11T09:27:36.418435" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/1 
+ path_url=/posts/1 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-04-11T09:27:36.418735" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/1 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 11 Apr 2024 06:27:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1709255591&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;s=G6Oa%2FYpd7oj%2BrnHJw0Uv7Gn%2F%2BrDvXC4IwlylZgBnEZE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1709255591&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;s=G6Oa%2FYpd7oj%2BrnHJw0Uv7Gn%2F%2BrDvXC4IwlylZgBnEZE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1709255651', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '15988', 'Server': 'cloudflare', 'CF-RAY': '8728e96a9b1babc9-CPH', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+} 
+ </msg>
+<msg time="2024-04-11T09:27:36.419168" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://jsonplaceholder.typicode.com/posts/1</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-04-11T09:27:35.945860" elapsed="0.473390"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-04-11T09:27:36.420769" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>1</arg>
+<arg>${response.json()}[id]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-04-11T09:27:36.419744" elapsed="0.001119"/>
+</kw>
+<status status="PASS" start="2024-04-11T09:27:35.945005" elapsed="0.476129"/>
+</test>
+<status status="PASS" start="2024-04-11T09:27:34.340574" elapsed="2.081210"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Browser Demo">Browser Demo</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Requests">Requests</stat>
 </suite>
 </statistics>
 <errors>
