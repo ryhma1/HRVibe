@@ -3,15 +3,14 @@ import express from 'express';
 import path from 'path';
 import {fileURLToPath} from 'url';
 // import itemRouter from './routes/item-router.mjs';
-import userRouter from './routes/user-router.mjs';
-import entryRouter from './routes/entry-router.mjs';
+import userRouter from './src/routes/user-router.mjs';
+import entryRouter from './src/routes/entry-router.mjs';
 import cors from 'cors';
-import logger from './middlewares/logger.mjs';
-import authRouter from './routes/auth-router.mjs';
-import kubiosRouter from './routes/kubios-router.mjs';
-import {errorHandler, notFoundHandler} from './middlewares/error-handler.mjs';
+import logger from './src/middlewares/logger.mjs';
+import authRouter from './src/routes/auth-router.mjs';
+import {errorHandler, notFoundHandler} from './src/middlewares/error-handler.mjs';
 const hostname = '127.0.0.1';
-const port = 3001;
+const port = 5500;
 const app = express();
 
 // middleware, joka lisää CORS-otsakkeen jokaiseen lähtevään vastaukseen.
@@ -58,6 +57,3 @@ app.use(errorHandler);
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
-
-// Kubios API resource (/api/kubios)
-app.use('/api/kubios', kubiosRouter);

@@ -38,7 +38,7 @@ document.getElementById("showSignup").addEventListener("click", () => {
       },
       body: JSON.stringify(data),
     };
-  
+    
     try {
       const response = await fetch(url, options);
       const responseData = await response.json();
