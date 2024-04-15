@@ -35,14 +35,14 @@
 
       <!-- Main -->
       <section id="main" class="container">
-        <header>
-          <h2>Log In</h2>
-        </header>
         <div class="row">
           <div class="col-12">
-            <!-- Text -->
-            <section class="box">
-              <form id="loginForm">
+            <!-- Login Form -->
+            <section class="form">
+              <form id="loginForm" class="login_form">
+                <header>
+                  <h2>Log In</h2>
+                </header>
                 <p>Email</p>
                 <div class="col-6 col-12-mobilep">
                   <input
@@ -67,12 +67,11 @@
                 <br />
                 <p>
                   <i
-                    >Don't have an account?<a href="signup.html"
+                    >Don't have an account?<a href="#" id="showSignup"
                       ><b> Sign up</b></a
                     ></i
                   >
                 </p>
-                <p></p>
                 <div>
                   <ul class="actions special">
                     <li>
@@ -82,6 +81,63 @@
                     </li>
                   </ul>
                 </div>
+              </form>
+            </section>
+          </div>
+        </div>
+        <div class="row" id="signupSection" style="display: none">
+          <div class="col-12">
+            <!-- Text -->
+            <header>
+              <h2>Sign Up</h2>
+            </header>
+            <section class="box">
+              <form id="signupForm">
+                <p>Email</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value=""
+                    placeholder="Email"
+                  />
+                </div>
+                <br />
+                <p>Password</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    value=""
+                    placeholder="Password"
+                  />
+                </div>
+                <br />
+                <p>Rewrite password</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="password"
+                    name="password-confirm"
+                    id="password-confirm"
+                    value=""
+                    placeholder="Password"
+                  />
+                </div>
+                <br />
+                <p>
+                  <i
+                    >Already have an account?<a href="#" id="showLogin"
+                      ><b> Log In</b></a
+                    ></i
+                  >
+                </p>
+                <ul class="actions special">
+                  <button type="submit" class="button alt signup-button">
+                    Sign Up
+                  </button>
+                </ul>
               </form>
             </section>
           </div>
@@ -107,7 +163,9 @@
             >
           </li>
           <li>
-            <a href="https://github.com/ryhma1/HRVibe" class="icon brands fa-github"
+            <a
+              href="https://github.com/ryhma1/HRVibe"
+              class="icon brands fa-github"
               ><span class="label">Github</span></a
             >
           </li>
@@ -137,5 +195,6 @@
     <script src="../assets/js/breakpoints.min.js"></script>
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../js/login-signup.js"></script>
   </body>
 </html>

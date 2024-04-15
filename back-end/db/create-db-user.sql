@@ -1,3 +1,3 @@
-CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON `database-name`.* TO 'username'@'localhsot';
+CREATE USER 'sil'@'localhost' IDENTIFIED BY 'hihi69';
+GRANT ALL PRIVILEGES ON `hrvibe`.* TO 'sil'@'localhsot';
 FLUSH PRIVILEGES;

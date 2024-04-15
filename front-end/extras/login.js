@@ -1,10 +1,9 @@
 import "/assets/css/main.css";
-import { fetchData } from "./fetch.js";  
+import { fetchData } from "../js/fetch.js";
 
 //
 // LOG IN USER
-const loginForm = document.getElementById("loginForm"); // Selecting the login form
-const loginUserButton = document.querySelector(".button alt login-button"); // Selecting the login button
+const loginForm = document.getElementById("loginForm");
 
 loginForm.addEventListener("submit", async (evt) => {
   evt.preventDefault();

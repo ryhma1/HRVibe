@@ -8,11 +8,11 @@ const fetchData = async (url, options = {}) => {
 
     jsonData = await response.json();
   } catch (error) {
-    console.error('fetchData() error', error);
+    console.error("fetchData() error", error);
     jsonData = {};
   }
   //console.log(jsonData);
   return jsonData;
 };
 
-export {fetchData};
+export { fetchData };
