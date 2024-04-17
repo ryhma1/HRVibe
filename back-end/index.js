@@ -10,7 +10,7 @@ import logger from './src/middlewares/logger.mjs';
 import authRouter from './src/routes/auth-router.mjs';
 import {errorHandler, notFoundHandler} from './src/middlewares/error-handler.mjs';
 const hostname = '127.0.0.1';
-const port = 5500;
+const port = 5501;
 const app = express();
 
 // middleware, joka lisää CORS-otsakkeen jokaiseen lähtevään vastaukseen.

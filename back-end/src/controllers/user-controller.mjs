@@ -31,12 +31,11 @@ const getUserById = async (req, res, next) => {
 };
 
 const postUser = async (req, res, next) => {
-  const {username, password, email} = req.body;
+  const {password, email} = req.body;
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
   const result = await insertUser(
     {
-      username,
       email,
       password: hashedPassword,
     },
@@ -50,13 +49,12 @@ const putUser = async (req, res, next) => {
   // Only user authenticated by token can update own data
   // TODO: admin user can update any user (incl. user_level)
   const userId = req.user.user_id;
-  const {username, password, email} = req.body;
+  const {password, email} = req.body;
   // hash password if included in request
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
   const result = await updateUserById({
     userId,
-    username,
     password: hashedPassword,
     email,
   });
