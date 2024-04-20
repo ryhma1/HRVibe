@@ -37,16 +37,33 @@
       <section id="main" class="container">
         <div class="row">
           <div class="col-12">
+            <!-- Login Form -->
             <section class="form">
-              <!-- Login Form -->
-              <h2>Log In</h2>
-              <form id="login_form" class="login_form">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Email" />
+              <form id="loginForm" class="login_form">
+                <header>
+                  <h2>Log In</h2>
+                </header>
+                <p>Email</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value=""
+                    placeholder="Email"
+                  />
+                </div>
                 <br />
-                <label for="password">Password</label>
-                <input type="password" name="password" placeholder="Password" />
-
+                <p>Password</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    value=""
+                    placeholder="Password"
+                  />
+                </div>
                 <br />
                 <p>
                   <i
@@ -55,60 +72,74 @@
                     ></i
                   >
                 </p>
-
-                <input
-                  name="submit"
-                  type="submit"
-                  value="Login"
-                  class="loginuser"
-                />
+                <div>
+                  <ul class="actions special">
+                    <li>
+                      <button type="submit" class="button alt login-button">
+                        Log In
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </form>
-              <div id="loginResponse"></div>
             </section>
-
-            <!-- Sing Up Form -->
-            <div class="row" id="signupSection" style="display: none">
-              <div class="col-12">
-                <h3>Sign Up</h3>
-                <form id="singuopForm">
-                  <label for="email">Email</label>
-                  <input type="email" name="email" placeholder="Email" />
-                  <br />
-                  <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row" id="signupSection" style="display: none">
+          <div class="col-12">
+            <!-- Text -->
+            <header>
+              <h2>Sign Up</h2>
+            </header>
+            <section class="box">
+              <form id="signupForm">
+                <p>Email</p>
+                <div class="col-6 col-12-mobilep">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value=""
+                    placeholder="Email"
+                  />
+                </div>
+                <br />
+                <p>Password</p>
+                <div class="col-6 col-12-mobilep">
                   <input
                     type="password"
                     name="password"
+                    id="password"
+                    value=""
                     placeholder="Password"
                   />
-                  <br />
-                  <label for="password-confirm">Rewrite Password</label>
+                </div>
+                <br />
+                <p>Rewrite password</p>
+                <div class="col-6 col-12-mobilep">
                   <input
                     type="password"
                     name="password-confirm"
+                    id="password-confirm"
+                    value=""
                     placeholder="Password"
                   />
-                  <br />
-                  <p>
-                    <i
-                      >Already have an account?<a href="#" id="showLogin"
-                        ><b> Log In</b></a
-                      ></i
-                    >
-                  </p>
-                  <ul class="actions special">
-                    <button type="submit" class="button alt signup-button">
-                      Sign Up
-                    </button>
-                  </ul>
-                  <input
-                    name="submit"
-                    type="submit"
-                    value="Sign Up"
-                    class="createuser"
-                  />
-                </form>
-              </div>
-            </div>
+                </div>
+                <br />
+                <p>
+                  <i
+                    >Already have an account?<a href="#" id="showLogin"
+                      ><b> Log In</b></a
+                    ></i
+                  >
+                </p>
+                <ul class="actions special">
+                  <button type="submit" class="button alt signup-button">
+                    Sign Up
+                  </button>
+                </ul>
+              </form>
+            </section>
           </div>
         </div>
       </section>
