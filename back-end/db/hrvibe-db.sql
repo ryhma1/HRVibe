@@ -15,6 +15,7 @@ CREATE TABLE user_data (
     weight FLOAT NOT NULL,
     age INT NOT NULL,
     gender VARCHAR(10) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 )
 
 CREATE TABLE entries (
