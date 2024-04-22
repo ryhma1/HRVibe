@@ -1,11 +1,3 @@
-/**
- * Fetches JSON data from APIs
- *
- * @param {string} url - api endpoint url
- * @param {Object} options - request options
- *
- * @returns {Object} response json data
- */
 const fetchData = async (url, options = {}) => {
   let jsonData;
   try {
@@ -16,11 +8,11 @@ const fetchData = async (url, options = {}) => {
 
     jsonData = await response.json();
   } catch (error) {
-    console.error("fetchData() error", error);
+    console.error('fetchData() error', error);
     jsonData = {};
   }
-  //console.log(jsonData);
+  console.log(jsonData);
   return jsonData;
 };
 
-export { fetchData };
+export {fetchData};
