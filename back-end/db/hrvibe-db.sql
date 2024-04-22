@@ -16,7 +16,7 @@ CREATE TABLE user_data (
     age INT NOT NULL,
     gender VARCHAR(10) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
-)
+);
 
 CREATE TABLE entries (
     entry_id INT AUTO_INCREMENT PRIMARY KEY,

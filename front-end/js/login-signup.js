@@ -1,4 +1,4 @@
-import { fetchData } from './fetch';
+import {fetchData} from './fetch.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // USER CREATION / LOGIN
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Automatically log in the newly created user
           const loginData = {
-            email: email,
+            username: username,
             password: password, // Use the same password
           };
 
