@@ -34,8 +34,8 @@ const selectUserById = async (id) => {
 const insertUser = async (user, next) => {
   try {
     const sql =
-      'INSERT INTO users (password, email) VALUES (?, ?)';
-    const params = [user.password, user.email];
+      'INSERT INTO users (email, password) VALUES (?, ?)';
+    const params = [user.email, user.password];
     const [result] = await promisePool.query(sql, params);
     // console.log(result);
     return {message: 'new user created', user_id: result.insertId};
@@ -50,8 +50,8 @@ const insertUser = async (user, next) => {
 const updateUserById = async (user) => {
   try {
     const sql =
-      'UPDATE users SET username=?, password=?, email=? WHERE user_id=?';
-    const params = [user.username, user.password, user.email, user.userId];
+      'UPDATE users SET email=? password=? WHERE user_id=?';
+    const params = [user.password, user.email, user.userId];
     await promisePool.query(sql, params);
     const [result] = await promisePool.query(sql, params);
     console.log(result);
@@ -80,23 +80,23 @@ const deleteUserById = async (id) => {
   }
 };
 
-// Used for login
-const selectUserByUsername = async (username) => {
-  try {
-    const sql = 'SELECT * FROM users WHERE username=?';
-    const params = [username];
-    const [rows] = await promisePool.query(sql, params);
-    // console.log(rows);
-    // if nothing is found with the username, login attempt has failed
-    if (rows.length === 0) {
-      return {error: 401, message: 'invalid username or password'};
-    }
-    return rows[0];
-  } catch (error) {
-    console.error('selectUserByNameAndPassword', error);
-    return {error: 500, message: 'db error'};
-  }
-};
+// // Used for login
+// const selectUserByUsername = async (username) => {
+//   try {
+//     const sql = 'SELECT * FROM users WHERE username=?';
+//     const params = [username];
+//     const [rows] = await promisePool.query(sql, params);
+//     // console.log(rows);
+//     // if nothing is found with the username, login attempt has failed
+//     if (rows.length === 0) {
+//       return {error: 401, message: 'invalid username or password'};
+//     }
+//     return rows[0];
+//   } catch (error) {
+//     console.error('selectUserByNameAndPassword', error);
+//     return {error: 500, message: 'db error'};
+//   }
+// };
 
 const selectUserByEmail = async (email) => {
   try {
@@ -123,6 +123,6 @@ export {
   insertUser,
   updateUserById,
   deleteUserById,
-  selectUserByUsername,
+  // selectUserByUsername,
   selectUserByEmail,
 };

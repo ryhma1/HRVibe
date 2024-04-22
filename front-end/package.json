@@ -1,31 +1,17 @@
 {
   "name": "hrvibe",
-  "version": "1.0.0",
-  "description": "group 1's project",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon back-end/src/index.js",
-    "start": "nodemon back-end/src/index.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "author": "silvava, miaran, ottorauh",
-  "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-google": "^0.14.0",
-    "nodemon": "^3.1.0"
+    "vite": "^5.0.8"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.1",
-    "express": "^4.18.2",
-    "express-validator": "^7.0.1",
-    "fetch": "^1.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.9.1",
-    "node-fetch": "^3.3.2",
-    "uuid": "^9.0.1"
+    "cors": "^2.8.5"
   }
 }
