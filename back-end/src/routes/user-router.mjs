@@ -34,10 +34,6 @@ userRouter
   // update user
   .put(
     authenticateToken,
-    body('username', 'username must be 3-20 characters long and alphanumeric')
-      .trim()
-      .isLength({min: 3, max: 20})
-      .isAlphanumeric(),
     body('password', 'minimum password length is 8 characters')
       .trim()
       .isLength({min: 8, max: 128}),
@@ -50,10 +46,6 @@ userRouter
   )
   // user registration
   .post(
-    body('username', 'username must be 3-20 characters long and alphanumeric')
-      .trim()
-      .isLength({min: 3, max: 20})
-      .isAlphanumeric(),
     body('password', 'minimum password length is 8 characters')
       .trim()
       .isLength({min: 8, max: 128}),
