@@ -1,3 +1,4 @@
+import { fetchData } from "./fetch";
 //
 // POST USER DATA
 document
@@ -11,9 +12,10 @@ document
     const height = formData.get("height");
     const weight = formData.get("weight");
     const age = formData.get("age");
+    const gender = formData.get("gender");
 
     // DEBUG: Check if form data is captured correctly
-    console.log("Form Data:", username, height, weight, age);
+    console.log("Form Data:", username, height, weight, age, gender);
 
     // Get user information from localStorage
     const token = localStorage.getItem("token");
@@ -28,13 +30,14 @@ document
       height: height,
       weight: weight,
       age: age,
+      gender: gender,
     };
 
     // DEBUG: Check if request body is constructed correctly
     console.log("Request Body:", data);
 
     // Send data to backend
-    const url = "/api/entries";
+    const url = "/api/data";
     const options = {
       method: "POST",
       headers: {

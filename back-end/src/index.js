@@ -4,7 +4,7 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 // import itemRouter from './routes/item-router.mjs';
 import userRouter from './routes/user-router.mjs';
-import entryRouter from './routes/entry-router.mjs';
+import dataRouter from './routes/data-router.mjs';
 import cors from 'cors';
 import logger from './middlewares/logger.mjs';
 import authRouter from './routes/auth-router.mjs';
@@ -40,7 +40,7 @@ app.use('/sivusto', express.static(path.join(__dirname, '../public')));
 // app.use('/items', itemRouter);
 
 // bind base url (/api/entries resource) for all entry routes to entryRouter
-app.use('/api/entries', entryRouter);
+app.use('/api/data', dataRouter);
 
 // Users resource (/api/users)
 app.use('/api/users', userRouter);

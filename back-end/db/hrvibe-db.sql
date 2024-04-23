@@ -9,6 +9,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE user_data (
+    data_id INT AUTO_INCREMENT PRIMARY KEY
     user_id INT,
     username VARCHAR(50) NOT NULL UNIQUE,
     height FLOAT NOT NULL,
