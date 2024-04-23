@@ -18,14 +18,14 @@ const getData = async (req, res, next) => {
   }
 };
 
-// const getDataById = async (req, res, next) => {
-//   const entry = await findDataById(req.params.id, req.user.user_id);
-//   if (entry) {
-//     res.json(entry);
-//   } else {
-//     next(customError('Data not found', 404));
-//   }
-// };
+const getDataById = async (req, res, next) => {
+  const entry = await findDataById(req.params.id, req.user.user_id);
+  if (entry) {
+    res.json(entry);
+  } else {
+    next(customError('Data not found', 404));
+  }
+};
 
 const postData = async (req, res, next) => {
   const userId = req.user.user_id;
@@ -56,4 +56,4 @@ const deleteData = async (req, res, next) => {
   return res.json(result);
 };
 
-export {getData, postData, putData, deleteData};
+export {getData, getDataById, postData, putData, deleteData};

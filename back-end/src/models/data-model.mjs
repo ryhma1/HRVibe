@@ -24,19 +24,19 @@ const listAllDataByUserId = async (id) => {
   }
 };
 
-// const findEntryById = async (id, userId) => {
-//   try {
-//     const [rows] = await promisePool.query(
-//       'SELECT * FROM DiaryEntries WHERE entry_id = ? AND user_id = ?',
-//       [id, userId],
-//     );
-//     // console.log('rows', rows);
-//     return rows[0];
-//   } catch (e) {
-//     console.error('error', e.message);
-//     return {error: e.message};
-//   }
-// };
+const findDataById = async (id, userId) => {
+  try {
+    const [rows] = await promisePool.query(
+      'SELECT * FROM DiaryEntries WHERE entry_id = ? AND user_id = ?',
+      [id, userId],
+    );
+    // console.log('rows', rows);
+    return rows[0];
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
 
 const addData = async (data, userId) => {
   const sql = `INSERT INTO user_data
@@ -84,27 +84,27 @@ const updateDataById = async (dataId, userId, dataData) => {
   }
 };
 
-// const deleteDataById = async (id, userId) => {
-//   try {
-//     const sql = 'DELETE FROM user_data WHERE data_id=? AND user_id=?';
-//     const params = [id, userId];
-//     const [result] = await promisePool.query(sql, params);
-//     // console.log(result);
-//     if (result.affectedRows === 0) {
-//       return {error: 404, message: 'Data not found'};
-//     }
-//     return {message: 'Information deleted', entry_id: id};
-//   } catch (error) {
-//     console.error('deleteDataById', error);
-//     return {error: 500, message: 'db error'};
-//   }
-// };
+const deleteDataById = async (id, userId) => {
+  try {
+    const sql = 'DELETE FROM user_data WHERE data_id=? AND user_id=?';
+    const params = [id, userId];
+    const [result] = await promisePool.query(sql, params);
+    // console.log(result);
+    if (result.affectedRows === 0) {
+      return {error: 404, message: 'Data not found'};
+    }
+    return {message: 'Information deleted', entry_id: id};
+  } catch (error) {
+    console.error('deleteDataById', error);
+    return {error: 500, message: 'db error'};
+  }
+};
 
 export {
   listAllData,
   listAllDataByUserId,
-  // findEntryById,
+  findDataById,
   addData,
   updateDataById,
-  // deleteDataById,
+  deleteDataById,
 };
