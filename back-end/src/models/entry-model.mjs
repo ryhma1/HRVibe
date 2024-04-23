@@ -2,7 +2,7 @@ import promisePool from '../utils/database.mjs';
 
 const listAllEntries = async () => {
   try {
-    const [rows] = await promisePool.query('SELECT * FROM DiaryEntries');
+    const [rows] = await promisePool.query('SELECT * FROM user_data');
     // console.log('rows', rows);
     return rows;
   } catch (e) {
@@ -13,7 +13,7 @@ const listAllEntries = async () => {
 
 const listAllEntriesByUserId = async (id) => {
   try {
-    const sql = 'SELECT * FROM DiaryEntries WHERE user_id=?';
+    const sql = 'SELECT * FROM user_data WHERE user_id=?';
     const params = [id];
     const [rows] = await promisePool.query(sql, params);
     // console.log('rows', rows);
@@ -24,29 +24,30 @@ const listAllEntriesByUserId = async (id) => {
   }
 };
 
-const findEntryById = async (id, userId) => {
-  try {
-    const [rows] = await promisePool.query(
-      'SELECT * FROM DiaryEntries WHERE entry_id = ? AND user_id = ?',
-      [id, userId],
-    );
-    // console.log('rows', rows);
-    return rows[0];
-  } catch (e) {
-    console.error('error', e.message);
-    return {error: e.message};
-  }
-};
+// const findEntryById = async (id, userId) => {
+//   try {
+//     const [rows] = await promisePool.query(
+//       'SELECT * FROM DiaryEntries WHERE entry_id = ? AND user_id = ?',
+//       [id, userId],
+//     );
+//     // console.log('rows', rows);
+//     return rows[0];
+//   } catch (e) {
+//     console.error('error', e.message);
+//     return {error: e.message};
+//   }
+// };
 
 const addEntry = async (entry, userId) => {
-  const sql = `INSERT INTO DiaryEntries
-               (user_id, mood, sleep_hours, notes)
-               VALUES (?, ?, ?, ?)`;
+  const sql = `INSERT INTO user_data
+               (user_id, username, height, weight, age)
+               VALUES (?, ?, ?, ?, ?)`;
   const params = [
     userId,
-    entry.mood,
-    entry.sleep_hours,
-    entry.notes,
+    entry.username,
+    entry.height,
+    entry.weight,
+    entrt.age,
   ];
   try {
     const rows = await promisePool.query(sql, params);
@@ -101,7 +102,7 @@ const deleteEntryById = async (id, userId) => {
 export {
   listAllEntries,
   listAllEntriesByUserId,
-  findEntryById,
+  // findEntryById,
   addEntry,
   updateEntryById,
   deleteEntryById,

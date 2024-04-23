@@ -36,70 +36,37 @@
           <div class="col-12">
             <section class="form">
               <!-- Login Form -->
-              <form id="login_form" class="login_form">
-                <h2>Log In</h2>
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Email" />
+              <form id="user_form" class="user_form">
+                <h2>Your Information</h2>
+                <label for="username">Username</label>
+                <input type="username" name="username" placeholder="Username" />
                 <br />
-                <label for="password">Password</label>
-                <input type="password" name="password" placeholder="Password" />
+                <label for="height">Weight</label>
+                <input type="number" name="height" placeholder="Height" />
+                <br />
+                <label for="weight">Weight</label>
+                <input type="number" name="weight" placeholder="Weight" />
+                <br />
+                <label for="age">Date of Birth</label>
+                <input type="number" name="age" placeholder="Date of Birth" />
+                <br />
+                <label for="gender">Select Gender:</label>
+                <select id="gender" name="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
 
                 <br />
-                <p>
-                  <i
-                    >Don't have an account?<a href="#" id="showSignup"
-                      ><b> Sign up</b></a
-                    ></i
-                  >
-                </p>
 
                 <input
                   name="submit"
                   type="submit"
-                  value="Login"
-                  class="loginuser"
+                  value="Save"
+                  class="saveData"
                 />
               </form>
             </section>
-
-            <!-- Sign Up Form -->
-            <div class="row" id="signupSection" style="display: none">
-              <div class="col-12">
-                <form id="signupForm">
-                  <h3>Sign Up</h3>
-                  <label for="email">Email</label>
-                  <input type="email" name="email" placeholder="Email" />
-                  <br />
-                  <label for="password">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                  />
-                  <br />
-                  <label for="password-confirm">Rewrite Password</label>
-                  <input
-                    type="password"
-                    name="password-confirm"
-                    placeholder="Password"
-                  />
-                  <br />
-                  <p>
-                    <i
-                      >Already have an account?<a href="#" id="showLogin"
-                        ><b> Log In</b></a
-                      ></i
-                    >
-                  </p>
-                  <input
-                    name="submit"
-                    type="submit"
-                    value="Sign Up"
-                    class="createuser"
-                  />
-                </form>
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import {fetchData} from './fetch.js';
+import {fetchData} from '../js/fetch.js';
 
 //
 // USER CREATION / LOGIN
