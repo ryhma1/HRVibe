@@ -19,14 +19,14 @@ CREATE TABLE user_data (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-CREATE TABLE entries (
-    entry_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    diary_entry TEXT,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    notes TEXT,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
+-- CREATE TABLE entries (
+--     entry_id INT AUTO_INCREMENT PRIMARY KEY,
+--     user_id INT,
+--     diary_entry TEXT,
+--     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--     notes TEXT,
+--     FOREIGN KEY (user_id) REFERENCES users(user_id)
+-- );
 
 -- mostly comes from kubios?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!???
 CREATE TABLE measurements (

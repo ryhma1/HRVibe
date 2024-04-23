@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if (loginResponse.ok) {
             localStorage.setItem('token', loginResponseData.token);
-            window.location.href = 'logged-index.html'; // Redirect to logged-in page
+            window.location.href = 'user.html'; // Redirect to a page where the user is logged and adds information
           } else {
             throw new Error(`HTTP error! status: ${loginResponse.status}`);
           }

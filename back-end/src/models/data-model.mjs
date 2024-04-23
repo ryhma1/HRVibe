@@ -44,11 +44,11 @@ const addData = async (data, userId) => {
                VALUES (?, ?, ?, ?, ?, ?)`;
   const params = [
     userId,
-    entry.username,
-    entry.height,
-    entry.weight,
-    entry.age,
-    entry.gender,
+    data.username,
+    data.height,
+    data.weight,
+    data.age,
+    data.gender,
   ];
   try {
     const rows = await promisePool.query(sql, params);
@@ -84,21 +84,21 @@ const updateDataById = async (dataId, userId, dataData) => {
   }
 };
 
-const deleteDataById = async (id, userId) => {
-  try {
-    const sql = 'DELETE FROM user_data WHERE data_id=? AND user_id=?';
-    const params = [id, userId];
-    const [result] = await promisePool.query(sql, params);
-    // console.log(result);
-    if (result.affectedRows === 0) {
-      return {error: 404, message: 'Data not found'};
-    }
-    return {message: 'Information deleted', entry_id: id};
-  } catch (error) {
-    console.error('deleteDataById', error);
-    return {error: 500, message: 'db error'};
-  }
-};
+// const deleteDataById = async (id, userId) => {
+//   try {
+//     const sql = 'DELETE FROM user_data WHERE data_id=? AND user_id=?';
+//     const params = [id, userId];
+//     const [result] = await promisePool.query(sql, params);
+//     // console.log(result);
+//     if (result.affectedRows === 0) {
+//       return {error: 404, message: 'Data not found'};
+//     }
+//     return {message: 'Information deleted', entry_id: id};
+//   } catch (error) {
+//     console.error('deleteDataById', error);
+//     return {error: 500, message: 'db error'};
+//   }
+// };
 
 export {
   listAllData,
@@ -106,5 +106,5 @@ export {
   // findEntryById,
   addData,
   updateDataById,
-  deleteDataById,
+  // deleteDataById,
 };
