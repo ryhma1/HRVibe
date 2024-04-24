@@ -1,4 +1,5 @@
-import {fetchData} from './fetch.js';
+import "../assets/css/main.css";
+import { fetchData } from "./fetch";
 
 document.addEventListener('DOMContentLoaded', () => {
   // USER CREATION / LOGIN
