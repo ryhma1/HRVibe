@@ -65,47 +65,18 @@
 
               <h4>Previous Measurements</h4>
               <div class="table-wrapper">
-                <table>
+                <table class="styled-table">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Description</th>
+                      <th>Meaurement</th>
+                      <th>Device</th>
                       <th>Date</th>
+                      <th></th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>HRV Measurement</td>
-                      <td>Measured with Polar Verity Sense</td>
-                      <td>1.5.2024</td>
-                      <td><a href="#">Details</a></td>
-                    </tr>
-                    <tr>
-                      <td>HRV Measurement</td>
-                      <td>Measured with Polar Verity Sense</td>
-                      <td>2.5.2024</td>
-                      <td><a href="#">Details</a></td>
-                    </tr>
-                    <tr>
-                      <td>HRV Measurement</td>
-                      <td>Measured with Polar H10</td>
-                      <td>3.5.2024</td>
-                      <td><a href="#">Details</a></td>
-                    </tr>
-                    <tr>
-                      <td>HRV Measurement</td>
-                      <td>Measured with Polar H10</td>
-                      <td>5.5.2024</td>
-                      <td><a href="#">Details</a></td>
-                    </tr>
-                    <tr>
-                      <td>HRV Measurement</td>
-                      <td>Measured with Movesense.</td>
-                      <td>6.5.2024</td>
-                      <td><a href="#">Details</a></td>
-                    </tr>
-                  </tbody>
+                  <tbody class="measurement-history"></tbody>
                 </table>
+                <button class="get_history">Get Previous Measurements</button>
               </div>
             </section>
           </div>
@@ -165,5 +136,6 @@
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/measure.js"></script>
   </body>
 </html>
