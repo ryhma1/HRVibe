@@ -14,15 +14,6 @@ document
     const age = formData.get("age");
     const gender = formData.get("gender");
 
-    // DEBUG: Check if form data is captured correctly
-    console.log("Form Data:", username, height, weight, age, gender);
-
-    // Get user information from localStorage
-    const token = localStorage.getItem("token");
-    if (!token) {
-      alert("User information not found. Please log in again.");
-      return;
-    }
 
     // Construct request body
     const data = {
@@ -41,7 +32,6 @@ document
     const options = {
       method: "POST",
       headers: {
-        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
@@ -49,15 +39,15 @@ document
 
     try {
       const response = await fetch(url, options);
-      const responseDataText = await response.text(); // Log the response text
+      const responseDataText = await response.text();
       console.log("Response text:", responseDataText); // Log the response text
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      alert("Entry added successfully!");
+      alert("User information added successfully!");
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to add data. Error details can be found in the console.");
+      alert("Failed to add information. Error details can be found in the console.");
     }
   });
