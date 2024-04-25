@@ -2101,22 +2101,6 @@
 		width: 50%;
 	}
 
-	input[type="date"] {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		background-color: #f8f8f8;
-		border-radius: 6px;
-		border: solid 1px #e5e5e5;
-		color: inherit;
-		display: block;
-		outline: 0;
-		padding: 0 1em;
-		text-decoration: none;
-		width: 45%;
-	}
-
 	input[type="username"] {
 		-moz-appearance: none;
 		-webkit-appearance: none;
