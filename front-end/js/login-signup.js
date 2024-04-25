@@ -1,5 +1,3 @@
-import "../assets/css/main.css";
-
 
 document.addEventListener('DOMContentLoaded', () => {
   // USER CREATION / LOGIN
@@ -138,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           // Store the token in localStorage
           localStorage.setItem('token', responseData.token);
-          window.location.href = 'logged-index.html'; // Redirect to logged-in page
+          window.location.href = 'user.html'; // Redirect to logged-in page
         } else {
           // Handle login failure
           console.error('Login failed:', responseData.error);
