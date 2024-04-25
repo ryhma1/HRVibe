@@ -1,86 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-03-25T15:23:55.340711" rpa="false" schemaversion="5">
-<suite id="s1" name="Browser Demo" source="/Users/Silva/Documents/HYTE-K24/periodi - 4/Projekti - Terveyssovelluyksen kehitys/Testaus/robot/browser_demo.robot">
-<test id="s1-t1" name="Test Web Form" line="6">
-<kw name="New Browser" owner="Browser">
-<msg time="2024-03-25T15:23:55.452852" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/Silva/Documents/HYTE-K24/periodi - 4/Projekti - Terveyssovelluyksen kehitys/Testaus/robot/browser/traces/e217caa9-848c-40a6-8be4-8f259d45981a"}</msg>
-<msg time="2024-03-25T15:23:55.453255" level="INFO">Starting Browser process /Users/Silva/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js using port 50989</msg>
-<msg time="2024-03-25T15:23:55.453279" level="INFO">Node startup parameters: ['node', '/Users/Silva/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js', '50989']</msg>
-<msg time="2024-03-25T15:23:57.044451" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/Silva/Documents/HYTE-K24/periodi - 4/Projekti - Terveyssovelluyksen kehitys/Testaus/robot/browser/traces/e217caa9-848c-40a6-8be4-8f259d45981a"}</msg>
-<arg>chromium</arg>
-<arg>headless=No</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2024-03-25T15:23:55.452513" elapsed="1.592544"/>
+<robot generator="Robot 7.0 (Python 3.12.0 on win32)" generated="2024-04-22T16:51:40.699752" rpa="false" schemaversion="5">
+<suite id="s1" name="Restful Booker" source="C:\Users\miara\Metropolia\HRVibe\testaus\robot\restful_booker.robot">
+<kw name="Authenticate as Admin" owner="restful_booker_keywords" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-22T16:51:40.856940" level="INFO">${body} = {'username': 'soni', 'password': 'soninkarva'}</msg>
+<var>${body}</var>
+<arg>username=soni</arg>
+<arg>password=soninkarva</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-22T16:51:40.856940" elapsed="0.000000"/>
 </kw>
-<kw name="New Page" owner="Browser">
-<msg time="2024-03-25T15:23:58.087752" level="INFO">Successfully initialized new page object and opened url: https://hyte-server.northeurope.cloudapp.azure.com/</msg>
-<msg time="2024-03-25T15:23:58.087811" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<arg>https://hyte-server.northeurope.cloudapp.azure.com/</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<status status="PASS" start="2024-03-25T15:23:57.045772" elapsed="1.042158"/>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-22T16:51:41.717801" level="INFO">POST Request : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
+ path_url=/api/auth/login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/json'} 
+ body=b'{"username": "soni", "password": "soninkarva"}' 
+ </msg>
+<msg time="2024-04-22T16:51:41.717801" level="INFO">POST Response : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
+ status=503, reason=Service Unavailable 
+ headers={'Date': 'Mon, 22 Apr 2024 13:51:41 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Content-Length': '408', 'Connection': 'close', 'Content-Type': 'text/html; charset=iso-8859-1'} 
+ body=&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;503 Service Unavailable&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Service Unavailable&lt;/h1&gt;
+&lt;p&gt;The server is temporarily unable to service your
+request due to maintenance downtime or capacity
+problems. Please try again later.&lt;/p&gt;
+&lt;hr&gt;
+&lt;address&gt;Apache/2.4.52 (Ubuntu) Server at hyte-server.northeurope.cloudapp.azure.com Port 443&lt;/address&gt;
+&lt;/body&gt;&lt;/html&gt;
+ 
+ </msg>
+<msg time="2024-04-22T16:51:41.717801" level="FAIL">HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</msg>
+<var>${response}</var>
+<arg>url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request.</doc>
+<status status="FAIL" start="2024-04-22T16:51:40.856940" elapsed="0.876622">HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
 </kw>
-<kw name="Get Title" owner="Browser">
-<msg time="2024-03-25T15:23:58.093128" level="INFO">Title: 'Vital Track'</msg>
-<arg>==</arg>
-<arg>Vital Track</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2024-03-25T15:23:58.088153" elapsed="0.005056"/>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
 </kw>
-<kw name="Click With Options" owner="Browser">
-<arg>id=loginButton</arg>
-<arg>delay=1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2024-03-25T15:23:58.093363" elapsed="1.179488"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${token}</var>
+<arg>${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
 </kw>
-<kw name="Type Text" owner="Browser">
-<msg time="2024-03-25T15:23:59.273704" level="INFO">Types the text 'soni' in the given field.</msg>
-<arg>[id=käyttis]</arg>
-<arg>${Username}</arg>
-<arg>delay=0.1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-03-25T15:23:59.273159" elapsed="0.427613"/>
+<kw name="Log" owner="BuiltIn">
+<arg>${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
 </kw>
-<kw name="Type Secret" owner="Browser">
-<arg>[id=passis]</arg>
-<arg>$Password</arg>
-<arg>delay=0.1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given secret from ``variable_name`` into the text field
-found by ``selector``.</doc>
-<status status="PASS" start="2024-03-25T15:23:59.701654" elapsed="1.062886"/>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
 </kw>
-<kw name="Click With Options" owner="Browser">
-<arg>css=.loginuser</arg>
-<arg>delay=1s</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2024-03-25T15:24:00.765807" elapsed="1.034761"/>
+<status status="FAIL" start="2024-04-22T16:51:40.856940" elapsed="0.876622">HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
 </kw>
-<status status="PASS" start="2024-03-25T15:23:55.452030" elapsed="6.349067"/>
+<test id="s1-t1" name="Get Diary Entries" line="8">
+<status status="FAIL" start="2024-04-22T16:51:41.733562" elapsed="0.000000">Parent suite setup failed:
+HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
 </test>
-<status status="PASS" start="2024-03-25T15:23:55.341400" elapsed="6.466477"/>
+<test id="s1-t2" name="Create Diary Entry" line="14">
+<status status="FAIL" start="2024-04-22T16:51:41.733562" elapsed="0.000000">Parent suite setup failed:
+HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
+</test>
+<status status="FAIL" start="2024-04-22T16:51:40.699752" elapsed="1.033810">Suite setup failed:
+HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Browser Demo">Browser Demo</stat>
+<stat pass="0" fail="2" skip="0" id="s1" name="Restful Booker">Restful Booker</stat>
 </suite>
 </statistics>
 <errors>

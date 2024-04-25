@@ -1,10 +1,14 @@
 *** Settings ***
-Library    QWeb     # Import library
+Library               RequestsLibrary
 
 *** Test Cases ***
-Basic interaction
-    OpenBrowser         https://qentinelqi.github.io/shop      firefox  # Avaa Firefox ja url
-    VerifyText          The animal friendly clothing company            # Tarkista sivun otsikko
-    ClickText           Scar the Lion                                   # Klikkaa tekstilinkiä: Scar the Lion
-    ClickText           Add to cart                                     # Klikkaa nappulaa (Button): Add to cart
-    DropDown            Size            Large                           # Valitse (Large) alasvetovalikosta (Size)
+
+Quick Get Request Test
+    ${response}=    GET  https://www.google.com
+
+Quick Get Request With Parameters Test
+    ${response}=    GET  https://www.google.com/search  params=query=ciao  expected_status=200
+
+Quick Get A JSON Body Test
+    ${response}=    GET  https://jsonplaceholder.typicode.com/posts/1
+    Should Be Equal As Strings    1  ${response.json()}[id]
