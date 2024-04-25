@@ -1,6 +1,7 @@
 import "../assets/css/main.css";
 import { fetchData } from "./fetch";
 
+
 document.addEventListener('DOMContentLoaded', () => {
   // USER CREATION / LOGIN
   document.getElementById('showSignup').addEventListener('click', () => {
