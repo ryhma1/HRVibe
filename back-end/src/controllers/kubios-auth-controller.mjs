@@ -1,7 +1,7 @@
 /**
  * Authentication resource controller using Kubios API for login
 * @module controllers/auth-controller
-* @author silvava <miarant@metropolia.fi>
+* @author silvava <silvava@metropolia.fi>
 * @requires jsonwebtoken
 * @requires bcryptjs
 * @requires dotenv

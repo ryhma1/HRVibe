@@ -1,31 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <robot generator="Robot 7.0 (Python 3.9.6 on darwin)" generated="2024-04-11T11:58:06.392898" rpa="false" schemaversion="5">
 <suite id="s1" name="Restful Booker" source="/Users/Silva/Documents/HYTE-K24/periodi - 4/HRVibe/testaus/robot/restful_booker.robot">
 <kw name="Authenticate as Admin" owner="restful_booker_keywords" type="SETUP">
 <kw name="Create Dictionary" owner="BuiltIn">
 <msg time="2024-04-11T11:58:06.466556" level="INFO">${body} = {'username': 'soni', 'password': 'soninkarva'}</msg>
+=======
+<robot generator="Robot 7.0 (Python 3.12.0 on win32)" generated="2024-04-22T16:51:40.699752" rpa="false" schemaversion="5">
+<suite id="s1" name="Restful Booker" source="C:\Users\miara\Metropolia\HRVibe\testaus\robot\restful_booker.robot">
+<kw name="Authenticate as Admin" owner="restful_booker_keywords" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-22T16:51:40.856940" level="INFO">${body} = {'username': 'soni', 'password': 'soninkarva'}</msg>
+>>>>>>> vko4
 <var>${body}</var>
 <arg>username=soni</arg>
 <arg>password=soninkarva</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<<<<<<< HEAD
 <status status="PASS" start="2024-04-11T11:58:06.466360" elapsed="0.000212"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
 <msg time="2024-04-11T11:58:07.107313" level="INFO">POST Request : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
+=======
+<status status="PASS" start="2024-04-22T16:51:40.856940" elapsed="0.000000"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-22T16:51:41.717801" level="INFO">POST Request : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
+>>>>>>> vko4
  path_url=/api/auth/login 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/json'} 
  body=b'{"username": "soni", "password": "soninkarva"}' 
  </msg>
+<<<<<<< HEAD
 <msg time="2024-04-11T11:58:07.107815" level="INFO">POST Response : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
  status=200, reason=OK 
  headers={'Date': 'Thu, 11 Apr 2024 08:58:09 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '455', 'ETag': 'W/"1c7-AudPzMdNNr+iPXTwT9dRc2ECjFc"', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive'} 
  body={"message":"Logged in successfully","user":{"user_id":3,"username":"soni","email":"soni@gmail.com","created_at":"2024-03-19T08:10:23.000Z","user_level":"admin"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6InNvbmkiLCJlbWFpbCI6InNvbmlAZ21haWwuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMTlUMDg6MTA6MjMuMDAwWiIsInVzZXJfbGV2ZWwiOiJhZG1pbiIsImlhdCI6MTcxMjgyNTg4OSwiZXhwIjoxNzEyOTEyMjg5fQ.dHZndoSL4UpEvHY7_aUE5eSqyQ6xPmeq2-HSad8yyFI"} 
  </msg>
 <msg time="2024-04-11T11:58:07.108433" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+=======
+<msg time="2024-04-22T16:51:41.717801" level="INFO">POST Response : url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login 
+ status=503, reason=Service Unavailable 
+ headers={'Date': 'Mon, 22 Apr 2024 13:51:41 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Content-Length': '408', 'Connection': 'close', 'Content-Type': 'text/html; charset=iso-8859-1'} 
+ body=&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;503 Service Unavailable&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Service Unavailable&lt;/h1&gt;
+&lt;p&gt;The server is temporarily unable to service your
+request due to maintenance downtime or capacity
+problems. Please try again later.&lt;/p&gt;
+&lt;hr&gt;
+&lt;address&gt;Apache/2.4.52 (Ubuntu) Server at hyte-server.northeurope.cloudapp.azure.com Port 443&lt;/address&gt;
+&lt;/body&gt;&lt;/html&gt;
+ 
+ </msg>
+<msg time="2024-04-22T16:51:41.717801" level="FAIL">HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</msg>
+>>>>>>> vko4
 <var>${response}</var>
 <arg>url=https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request.</doc>
+<<<<<<< HEAD
 <status status="PASS" start="2024-04-11T11:58:06.466640" elapsed="0.641867"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
@@ -180,11 +216,56 @@
 <statistics>
 <total>
 <stat pass="2" fail="0" skip="0">All Tests</stat>
+=======
+<status status="FAIL" start="2024-04-22T16:51:40.856940" elapsed="0.876622">HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${token}</var>
+<arg>${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-04-22T16:51:41.733562" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-04-22T16:51:40.856940" elapsed="0.876622">HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
+</kw>
+<test id="s1-t1" name="Get Diary Entries" line="8">
+<status status="FAIL" start="2024-04-22T16:51:41.733562" elapsed="0.000000">Parent suite setup failed:
+HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
+</test>
+<test id="s1-t2" name="Create Diary Entry" line="14">
+<status status="FAIL" start="2024-04-22T16:51:41.733562" elapsed="0.000000">Parent suite setup failed:
+HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
+</test>
+<status status="FAIL" start="2024-04-22T16:51:40.699752" elapsed="1.033810">Suite setup failed:
+HTTPError: 503 Server Error: Service Unavailable for url: https://hyte-server.northeurope.cloudapp.azure.com/api/auth/login</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+>>>>>>> vko4
 </total>
 <tag>
 </tag>
 <suite>
+<<<<<<< HEAD
 <stat pass="2" fail="0" skip="0" id="s1" name="Restful Booker">Restful Booker</stat>
+=======
+<stat pass="0" fail="2" skip="0" id="s1" name="Restful Booker">Restful Booker</stat>
+>>>>>>> vko4
 </suite>
 </statistics>
 <errors>

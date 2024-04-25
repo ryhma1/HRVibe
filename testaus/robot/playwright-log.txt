@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"level":30,"time":"2024-04-04T19:18:09.391Z","pid":3312,"hostname":"MacBook-Air.local","msg":"Listening on 54130"}
 (node:3312) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
 (Use `node --trace-deprecation ...` to show where the warning was created)
@@ -33,3 +34,49 @@
 {"level":30,"time":"2024-04-04T19:18:16.677Z","pid":3312,"hostname":"MacBook-Air.local","msg":"Strict mode is enabled, find Locator with [id=notes] in page."}
 {"level":30,"time":"2024-04-04T19:18:19.894Z","pid":3312,"hostname":"MacBook-Air.local","msg":"End of node method typeText"}
 {"level":30,"time":"2024-04-04T19:18:52.657Z","pid":3312,"hostname":"MacBook-Air.local","msg":"Removed page=4be009b9-10a3-4778-993f-bb10fcc39aa2 from context=97499f1a-9fd0-456e-8847-3e86fe47bbf3 page stack"}
+=======
+{"level":30,"time":"2024-04-22T13:49:49.467Z","pid":28156,"hostname":"mia","msg":"Listening on 55151"}
+(node:28156) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2024-04-22T13:49:49.932Z","pid":28156,"hostname":"mia","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:49.933Z","pid":28156,"hostname":"mia","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:49.938Z","pid":28156,"hostname":"mia","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:49.938Z","pid":28156,"hostname":"mia","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:49.943Z","pid":28156,"hostname":"mia","msg":"Start of node method newPage"}
+{"level":30,"time":"2024-04-22T13:49:49.944Z","pid":28156,"hostname":"mia","msg":"currentBrowser: undefined"}
+{"level":30,"time":"2024-04-22T13:49:51.474Z","pid":28156,"hostname":"mia","msg":"Changed active context"}
+{"level":30,"time":"2024-04-22T13:49:51.968Z","pid":28156,"hostname":"mia","msg":"Video path: undefined"}
+{"level":30,"time":"2024-04-22T13:49:51.968Z","pid":28156,"hostname":"mia","msg":"Changed active page"}
+{"level":30,"time":"2024-04-22T13:49:55.485Z","pid":28156,"hostname":"mia","msg":"End of node method newPage"}
+{"level":30,"time":"2024-04-22T13:49:55.493Z","pid":28156,"hostname":"mia","msg":"Start of node method getText"}
+{"level":30,"time":"2024-04-22T13:49:55.493Z","pid":28156,"hostname":"mia","msg":"Strict mode is enabled, find Locator with h1 in page."}
+{"level":30,"time":"2024-04-22T13:49:55.665Z","pid":28156,"hostname":"mia","msg":"Retrieved text for element h1 containing Playwright enables reliable end-to-end testing for modern web apps."}
+{"level":30,"time":"2024-04-22T13:49:55.665Z","pid":28156,"hostname":"mia","msg":"End of node method getText"}
+{"level":30,"time":"2024-04-22T13:49:55.674Z","pid":28156,"hostname":"mia","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.677Z","pid":28156,"hostname":"mia","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.680Z","pid":28156,"hostname":"mia","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.682Z","pid":28156,"hostname":"mia","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.686Z","pid":28156,"hostname":"mia","msg":"Changed active context"}
+{"level":30,"time":"2024-04-22T13:49:55.686Z","pid":28156,"hostname":"mia","msg":"Changing current active page: page=1b4444cd-7107-4a23-9b0b-9a2de9b2979f"}
+{"level":30,"time":"2024-04-22T13:49:55.686Z","pid":28156,"hostname":"mia","msg":"Changed active page"}
+{"level":30,"time":"2024-04-22T13:49:55.691Z","pid":28156,"hostname":"mia","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.694Z","pid":28156,"hostname":"mia","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.696Z","pid":28156,"hostname":"mia","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2024-04-22T13:49:55.697Z","pid":28156,"hostname":"mia","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2024-04-22T13:49:55.700Z","pid":28156,"hostname":"mia","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2024-04-22T13:49:55.701Z","pid":28156,"hostname":"mia","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2024-04-22T13:49:55.704Z","pid":28156,"hostname":"mia","msg":"Changing current active page: page=1b4444cd-7107-4a23-9b0b-9a2de9b2979f"}
+{"level":30,"time":"2024-04-22T13:49:55.705Z","pid":28156,"hostname":"mia","msg":"Changed active page"}
+{"level":30,"time":"2024-04-22T13:49:55.709Z","pid":28156,"hostname":"mia","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.713Z","pid":28156,"hostname":"mia","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.716Z","pid":28156,"hostname":"mia","msg":"Changed active context"}
+{"level":30,"time":"2024-04-22T13:49:55.716Z","pid":28156,"hostname":"mia","msg":"Changing current active page: page=1b4444cd-7107-4a23-9b0b-9a2de9b2979f"}
+{"level":30,"time":"2024-04-22T13:49:55.716Z","pid":28156,"hostname":"mia","msg":"Changed active page"}
+{"level":30,"time":"2024-04-22T13:49:55.719Z","pid":28156,"hostname":"mia","msg":"Start of node method closeContext"}
+{"level":30,"time":"2024-04-22T13:49:55.728Z","pid":28156,"hostname":"mia","msg":"Removed page=cc0e383b-f180-447a-9051-eccd15f9089c from context=52ba848c-2065-4474-beae-c1061669ce9b page stack"}
+{"level":30,"time":"2024-04-22T13:49:55.737Z","pid":28156,"hostname":"mia","msg":"End of node method closeContext"}
+{"level":30,"time":"2024-04-22T13:49:55.745Z","pid":28156,"hostname":"mia","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:55.745Z","pid":28156,"hostname":"mia","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-04-22T13:49:56.196Z","pid":28156,"hostname":"mia","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2024-04-22T13:49:56.272Z","pid":28156,"hostname":"mia","msg":"End of node method closeAllBrowsers"}
+>>>>>>> vko4
