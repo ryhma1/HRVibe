@@ -64,7 +64,7 @@ const kubiosLogin = async (username, password) => {
   // If login fails, location contains 'login?null'
   if (location.includes('login?null')) {
     throw customError(
-      'Login with Kubios failed due bad username/password',
+      'Login with Kubios failed due bad email/password',
       401,
     );
   }
@@ -112,7 +112,7 @@ const syncWithLocalUser = async (kubiosUser) => {
   if (result.error) {
     // Create user
     const newUser = {
-      username: kubiosUser.email,
+      // username: kubiosUser.email,
       email: kubiosUser.email,
       // Random password, quick workaround for the required field
       password: v4(),
@@ -135,11 +135,11 @@ const syncWithLocalUser = async (kubiosUser) => {
 * @return {object} user if username & password match
 */
 const postLogin = async (req, res, next) => {
-  const {username, password} = req.body;
+  const {email, password} = req.body;
   // console.log('login', req.body);
   try {
     // Try to login with Kubios
-    const kubiosIdToken = await kubiosLogin(username, password);
+    const kubiosIdToken = await kubiosLogin(email, password);
     const kubiosUser = await kubiosUserInfo(kubiosIdToken);
     const localUserId = await syncWithLocalUser(kubiosUser);
     // Include kubiosIdToken in the auth token used in this app

@@ -80,7 +80,7 @@ const deleteUserById = async (id) => {
   }
 };
 
-// // Used for login
+// // // Used for login
 // const selectUserByUsername = async (username) => {
 //   try {
 //     const sql = 'SELECT * FROM users WHERE username=?';

@@ -1,5 +1,6 @@
 import "../assets/css/main.css";
 
+
 document.addEventListener('DOMContentLoaded', () => {
   // USER CREATION / LOGIN
   document.getElementById('showSignup').addEventListener('click', () => {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       evt.preventDefault();
       console.log('Creating user');
 
-      const url = '/api/users';
+      const url = 'http://127.0.0.1:3000/api/users';
 
       const form = document.querySelector('#signupForm');
       const email = form.querySelector('input[name=email]').value;
@@ -56,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(data),
       };
 
+      console.log(data);
+
       try {
         const response = await fetch(url, options);
         const responseData = await response.json();
@@ -65,9 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('token', responseData.token);
           alert('User created successfully!');
 
+          console.log(localStorage);
+
           // Automatically log in the newly created user
           const loginData = {
-            username: username,
+            email: email,
             password: password, // Use the same password
           };
 
@@ -79,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(loginData),
           };
 
-          const loginResponse = await fetch('/api/auth/login', loginOptions);
+          const loginResponse = await fetch('http://127.0.0.1:3000/api/auth/login', loginOptions);
           const loginResponseData = await loginResponse.json();
 
           if (loginResponse.ok) {
@@ -109,14 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
       evt.preventDefault();
       console.log('Logging in user');
 
-      const url = '/api/auth/login';
+      const url = 'http://127.0.0.1:3000/api/auth/login';
 
       const form = document.querySelector('#login_form');
 
       const data = {
         email: form.querySelector('input[name=email]').value,
         password: form.querySelector('input[name=password]').value,
-      };
+      }; 
 
       const options = {
         method: 'POST',
