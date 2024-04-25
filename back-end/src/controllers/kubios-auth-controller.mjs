@@ -60,7 +60,7 @@ const kubiosLogin = async (username, password) => {
     throw customError('Login with Kubios failed', 500);
   }
   const location = response.headers.raw().location[0];
-  console.log(location);
+  // console.log(location);
   // If login fails, location contains 'login?null'
   if (location.includes('login?null')) {
     throw customError(
@@ -136,7 +136,7 @@ const syncWithLocalUser = async (kubiosUser) => {
 */
 const postLogin = async (req, res, next) => {
   const {email, password} = req.body;
-  console.log('login', req.body);
+  // console.log('login', req.body);
   try {
     // Try to login with Kubios
     const kubiosIdToken = await kubiosLogin(email, password);
