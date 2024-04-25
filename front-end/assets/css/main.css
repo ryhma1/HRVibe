@@ -2101,6 +2101,22 @@
 		width: 50%;
 	}
 
+	input[type="date"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		background-color: #f8f8f8;
+		border-radius: 6px;
+		border: solid 1px #e5e5e5;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 45%;
+	}
+
 	input[type="username"] {
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -2143,6 +2159,7 @@
 		input[type="email"]:invalid,
 		input[type="username"]:invalid,
 		input[type="number"]:invalid,
+		input[type="date"]:invalid,
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -2153,6 +2170,7 @@
 		input[type="email"]:focus,
 		input[type="username"]:focus,
 		input[type="number"]:focus,
+		input[type="date"]:focus,
 		select:focus,
 		textarea:focus {
 			border-color: #e89980;
@@ -2187,6 +2205,7 @@
 	input[type="email"],
 	input[type="username"],
 	input[type="number"],
+	input[type="date"],
 	select {
 		height: 3em;
 	}
