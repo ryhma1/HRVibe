@@ -9,7 +9,7 @@
     "dev": "nodemon back-end/src/index.js",
     "start": "nodemon back-end/src/index.js"
   },
-  "author": "silvava, miaran, ottorauh",
+  "author": "silvava, miarant, ottorauh",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.57.0",
