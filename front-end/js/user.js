@@ -38,7 +38,7 @@ document
     console.log("Request Body:", data);
 
     // Send data to backend
-    const url = "/api/data";
+    const url = "http://127.0.0.1:3000/api/data";
     const options = {
       method: "POST",
       headers: {

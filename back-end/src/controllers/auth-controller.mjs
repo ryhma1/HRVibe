@@ -14,8 +14,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import 'dotenv/config';
-import {getMe, postLogin } from '../kubios-auth-controller.mjs';
-import {selectUserByUsername} from '../models/user-model.mjs';
+import {selectUserByEmail} from '../models/user-model.mjs';
 import {customError} from '../middlewares/error-handler.mjs';
 
 /**
@@ -24,12 +23,12 @@ import {customError} from '../middlewares/error-handler.mjs';
  * @param {object} req
  * @param {object} res
  * @param {function} next
- * @return {object} user if username & password match
+ * @return {object} user if email & password match
  */
 const postLogin = async (req, res, next) => {
-  const {username, password} = req.body;
+  const {email, password} = req.body;
   console.log('login', req.body);
-  const user = await selectUserByUsername(username);
+  const user = await selectUserByEmail(email);
   if (user.error) {
     return res.status(user.error).json(user);
   }
