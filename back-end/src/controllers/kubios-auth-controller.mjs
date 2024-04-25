@@ -32,13 +32,13 @@ const baseUrl = process.env.KUBIOS_API_URI;
 * @param {string} password Password in Kubios
 * @return {string} idToken Kubios id token
 */
-const kubiosLogin = async (email, password) => {
+const kubiosLogin = async (username, password) => {
   const csrf = v4();
   const headers = new Headers();
   headers.append('Cookie', `XSRF-TOKEN=${csrf}`);
   headers.append('User-Agent', process.env.KUBIOS_USER_AGENT);
   const searchParams = new URLSearchParams();
-  searchParams.set('email', email);
+  searchParams.set('username', username);
   searchParams.set('password', password);
   searchParams.set('client_id', process.env.KUBIOS_CLIENT_ID);
   searchParams.set('redirect_uri', process.env.KUBIOS_REDIRECT_URI);
@@ -60,7 +60,7 @@ const kubiosLogin = async (email, password) => {
     throw customError('Login with Kubios failed', 500);
   }
   const location = response.headers.raw().location[0];
-  // console.log(location);
+  console.log(location);
   // If login fails, location contains 'login?null'
   if (location.includes('login?null')) {
     throw customError(
@@ -136,7 +136,7 @@ const syncWithLocalUser = async (kubiosUser) => {
 */
 const postLogin = async (req, res, next) => {
   const {email, password} = req.body;
-  // console.log('login', req.body);
+  console.log('login', req.body);
   try {
     // Try to login with Kubios
     const kubiosIdToken = await kubiosLogin(email, password);

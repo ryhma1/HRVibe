@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = {
         email: form.querySelector('input[name=email]').value,
         password: form.querySelector('input[name=password]').value,
-      };
+      }; 
 
       const options = {
         method: 'POST',
