@@ -1,6 +1,3 @@
-import "./style.css";
-import { fetchData } from "./fetch.js";
-
 //
 // LOGOUT
 const logoutButton = document.querySelector(".logout a");
