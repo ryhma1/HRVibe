@@ -16,11 +16,12 @@ document
 
     // Get user token from localStorage
     const token = localStorage.getItem('token');
+    console.log(localStorage);
     if (!token) {
       throw new Error('User token not found. Please log in.');
     }
 
-    // Add userId to the data
+    // Add data
     const data = {
       username: username,
       height: height,
