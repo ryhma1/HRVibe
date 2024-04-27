@@ -1,10 +1,3 @@
-//
-// LOGOUT
-const logoutButton = document.querySelector(".logout a");
-logoutButton.addEventListener("click", () => {
-  localStorage.removeItem("token");
-  window.location.href = "index.html";
-});
 
 //
 // POST ENTRIES
@@ -65,74 +58,53 @@ document
     }
   });
 
+
+
+
+
 //
-// GET USER ENTRIES
-const getEntriesButton = document.querySelector(".get_entries");
-getEntriesButton.addEventListener("click", getDiaryEntries);
+// GET USER DATA
+async function getUserProfile() {
+    try {
+        // Get user token from localStorage
+        const token = localStorage.getItem("token");
+        if (!token) {
+            throw new Error("User token not found. Please log in.");
+        }
 
-async function getDiaryEntries() {
-  try {
-    // Get user token from localStorage
-    const token = localStorage.getItem("token");
-    if (!token) {
-      throw new Error("User token not found. Please log in.");
+        // Fetch user's profile data
+        const response = await fetch("/api/data", {
+            method: "GET",
+            headers: {
+                Authorization: "Bearer " + token,
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch user profile data.");
+        }
+
+        const userData = await response.json();
+
+        // Update the HTML to display user profile data
+        document.getElementById("username").textContent = userData.username;
+        document.getElementById("height").textContent = userData.height;
+        document.getElementById("weight").textContent = userData.weight;
+        document.getElementById("age").textContent = userData.age;
+        document.getElementById("gender").textContent = userData.gender;
+    } catch (error) {
+        console.error("Error:", error.message);
+        alert("Failed to fetch user profile data. Please try again.");
     }
-
-    // Fetch user's diary entries
-    const response = await fetch("/api/entries", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch diary entries.");
-    }
-
-    const data = await response.json();
-    if (data.length === 0) {
-      // Show alert if there are no entries
-      alert("There are no diary entries for the user. Please add entry.");
-      return; // Exit function early
-    }
-
-    // Display diary entries in the table
-    const diaryEntriesTable = document.querySelector(".diary-entries");
-    diaryEntriesTable.innerHTML = ""; // Clear existing entries
-
-    data.forEach((entry) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-          <td>${entry.mood}</td>
-          <td>${entry.sleep_hours}</td>
-          <td>${entry.notes}</td>
-          <td>
-            <button class="update" data-id="${entry.entry_id}">Update</button>
-          </td>
-          <td>
-            <button class="del" data-id="${entry.entry_id}">Delete</button>
-          </td>
-        `;
-
-      // Add event listener for Update button
-      const updateButton = row.querySelector(".update");
-      updateButton.addEventListener("click", () => {
-        // Open modal or form for modification
-        openUpdateEntryPopup(entry);
-      });
-
-      // Add event listener for Delete button
-      const deleteButton = row.querySelector(".del");
-      deleteButton.addEventListener("click", deleteEntry);
-
-      diaryEntriesTable.appendChild(row);
-    });
-  } catch (error) {
-    console.error("Error:", error.message);
-    alert("Failed to fetch diary entries. Please try again.");
-  }
 }
+
+// Call the function to fetch and display user profile data when the page loads
+window.addEventListener("load", getUserProfile);
+
+
+
+
+
 
 //
 // UPDATE ENTRY

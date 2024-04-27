@@ -42,20 +42,19 @@
           <div class="col-12">
             <!-- Text -->
             <section class="box">
-              <h3>User infromation</h3>
-              <p>
-                <b>Name:</b>
-                <br />
-                <b>Email:</b>
-                <br />
-                <b>Height:</b>
-                <br />
-                <b>Weight:</b>
-                <br />
-                <b>Age:</b>
-                <br />
-                <b>Gender:</b>
-              </p>
+              <h3>Profile</h3>
+              <br />
+              <div>
+                <div class="user-details" id="userDetails">
+                  <p><strong>Username:</strong> <span id="username"></span></p>
+                  <p><strong>Height:</strong> <span id="height"></span></p>
+                  <p><strong>Weight:</strong> <span id="weight"></span></p>
+                  <p><strong>Age:</strong> <span id="age"></span></p>
+                  <p><strong>Gender:</strong> <span id="gender"></span></p>
+                </div>
+                <!-- Add a button to refresh or update profile data -->
+                <button class="get_userData">Get User Information</button>
+              </div>
             </section>
           </div>
         </div>
@@ -114,5 +113,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="js/logout.js"></script>
+    <script src="js/profile.js"></script>
   </body>
 </html>

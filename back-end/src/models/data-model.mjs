@@ -38,12 +38,14 @@ const findDataById = async (id, userId) => {
   }
 };
 
-const addData = async (data, dataId) => {
+const addData = async (data, dataId, userId) => {
+  console.log("User ID:", userId);
   const sql = `INSERT INTO user_data
-               (data_id, username, height, weight, age, gender)
-               VALUES (?, ?, ?, ?, ?, ?)`;
+               (data_id, user_id, username, height, weight, age, gender)
+               VALUES (?, ?, ?, ?, ?, ?, ?)`;
   const params = [
-    dataId,
+    dataId, 
+    userId,
     data.username,
     data.height,
     data.weight,

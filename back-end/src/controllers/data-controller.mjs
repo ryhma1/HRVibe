@@ -30,7 +30,7 @@ const getDataById = async (req, res, next) => {
 const postData = async (req, res, next) => {
   const userId = req.user.user_id;
   const result = await addData(req.body, userId);
-  if (result.entry_id) {
+  if (result.data_id) {
     res.status(201);
     res.json({message: 'New data added.', ...result});
   } else {

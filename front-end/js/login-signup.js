@@ -61,8 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const responseData = await response.json();
 
         if (response.ok) {
-          alert('User created successfully! Please create an account to Kubios Cloud for further HRVibe functionalities including measurements, analysis and history and then log in using the credentials.');
-          window.open('https://analysis.kubioscloud.com/v2/portal/documentation/index.html', '_blank');
+          alert(
+            'User created successfully! Please create an account to Kubios Cloud for further HRVibe functionalities including measurements, analysis and history and then log in using the credentials.'
+          );
+          window.open(
+            'https://analysis.kubioscloud.com/v2/portal/documentation/index.html',
+            '_blank'
+          );
         } else {
           // Handle other status codes (e.g., server error)
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -109,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
           // Store the token in localStorage
           localStorage.setItem('token', responseData.token);
 
-          // console.log(responseData);
+          console.log('Hei!', localStorage);
 
-          window.location.href = 'logged-index.html'; // Redirect to logged-in page
+          window.location.href = 'user.html'; // Redirect to logged-in page
         } else {
           // Handle login failure
           console.error('Login failed:', responseData.error);
