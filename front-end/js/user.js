@@ -14,7 +14,13 @@ document
     const age = formData.get('age');
     const gender = formData.get('gender');
 
-    // Construct request body
+    // Get user token from localStorage
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('User token not found. Please log in.');
+    }
+
+    // Add userId to the data
     const data = {
       username: username,
       height: height,
@@ -22,12 +28,6 @@ document
       age: age,
       gender: gender,
     };
-
-    // Get user token from localStorage
-    const token = localStorage.getItem('token');
-    if (!token) {
-      throw new Error('User token not found. Please log in.');
-    }
 
     // Send data to backend
     const url = 'http://127.0.0.1:3000/api/data';
