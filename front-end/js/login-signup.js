@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           alert(
-            'User created successfully! Please create an account to Kubios Cloud for further HRVibe functionalities including measurements, analysis and history and then log in using the credentials.'
+            'User created successfully! Please create an account to Kubios Cloud for further HRVibe functionalities including measurements, analysis and history. After this, log in using the Kubious Cloud account.'
           );
           window.open(
             'https://analysis.kubioscloud.com/v2/portal/documentation/index.html',
