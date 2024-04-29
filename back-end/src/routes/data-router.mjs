@@ -18,12 +18,12 @@ dataRouter
   .post(
     authenticateToken,
     body('username').optional().trim().isLength({min: 3, max: 20}).isString(),
-    body('height').optional().isInt({min: 0, max: 500}),
-    body('weight').optional().isInt({min: 0, max: 500}),
+    body('height').optional().isInt({min: 1, max: 500}),
+    body('weight').optional().isInt({min: 1, max: 500}),
     body('age').optional().isInt({min: 0, max: 120}),
     body('gender').optional().isString().isLength({min: 3, max: 100}),
     validationErrorHandler,
-    postData
+    postData,
   );
 
 

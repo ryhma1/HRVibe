@@ -19,9 +19,9 @@ const getData = async (req, res, next) => {
 };
 
 const getDataById = async (req, res, next) => {
-  const entry = await findDataById(req.params.id, req.user.user_id);
-  if (entry) {
-    res.json(entry);
+  const data = await findDataById(req.params.id, req.user.user_id);
+  if (data) {
+    res.json(data);
   } else {
     next(customError('Data not found', 404));
   }
@@ -32,7 +32,7 @@ const postData = async (req, res, next) => {
   const result = await addData(req.body, userId);
   if (result.data_id) {
     res.status(201);
-    res.json({message: 'New data added.', ...result});
+    res.json({message: 'Data added.', ...result});
   } else {
     next(new Error(result.error));
   }
@@ -41,7 +41,7 @@ const postData = async (req, res, next) => {
 const putData = async (req, res, next) => {
   const dataId = req.params.id;
   const userId = req.user.user_id;
-  const result = await updateEntryById(dataId, userId, req.body);
+  const result = await updateDataById(dataId, userId, req.body);
   if (result.error) {
     return next(customError(result.message, result.error));
   }

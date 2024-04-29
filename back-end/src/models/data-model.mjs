@@ -27,7 +27,7 @@ const listAllDataByUserId = async (id) => {
 const findDataById = async (id, userId) => {
   try {
     const [rows] = await promisePool.query(
-      'SELECT * FROM DiaryEntries WHERE entry_id = ? AND user_id = ?',
+      'SELECT * FROM user_data WHERE data_id = ? AND user_id = ?',
       [id, userId]
     );
     // console.log('rows', rows);
@@ -38,13 +38,12 @@ const findDataById = async (id, userId) => {
   }
 };
 
-const addData = async (data, dataId, userId) => {
+const addData = async (data, userId) => {
   console.log("User ID:", userId);
   const sql = `INSERT INTO user_data
-               (data_id, user_id, username, height, weight, age, gender)
-               VALUES (?, ?, ?, ?, ?, ?, ?)`;
+               (user_id, username, height, weight, age, gender)
+               VALUES (?, ?, ?, ?, ?, ?)`;
   const params = [
-    dataId, 
     userId,
     data.username,
     data.height,
@@ -74,13 +73,13 @@ const updateDataById = async (dataId, userId, dataData) => {
     const [result] = await promisePool.query(sql, params);
     // console.log(result);
     if (result.affectedRows === 0) {
-      return {error: 404, message: 'Entry not found'};
+      return {error: 404, message: 'Data not found'};
     }
-    return {message: 'Entry data updated', data_id: dataId};
+    return {message: 'Data updated', data_id: dataId};
   } catch (error) {
     // fix error handling
     // now duplicate entry error is generic 500 error, should be fixed to 400 ?
-    console.error('updateEntryById', error);
+    console.error('updateDataById', error);
     return {error: 500, message: 'db error'};
   }
 };
@@ -94,7 +93,7 @@ const deleteDataById = async (id, userId) => {
     if (result.affectedRows === 0) {
       return {error: 404, message: 'Data not found'};
     }
-    return {message: 'Information deleted', entry_id: id};
+    return {message: 'Information deleted', data_id: id};
   } catch (error) {
     console.error('deleteDataById', error);
     return {error: 500, message: 'db error'};
