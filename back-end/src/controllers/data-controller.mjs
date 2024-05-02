@@ -8,9 +8,9 @@ import {
 } from '../models/data-model.mjs';
 
 const getData = async (req, res, next) => {
-  // return only logged in user's own entries
+  // return only logged in user's own data
   // - get user's id from token (req.user.user_id)
-  const result = await listAllDataByUserId(req.user.user_id);
+  const result = await listAllDataByUserId(req.user.userId);
   if (!result.error) {
     res.json(result);
   } else {
@@ -19,7 +19,7 @@ const getData = async (req, res, next) => {
 };
 
 const getDataById = async (req, res, next) => {
-  const data = await findDataById(req.params.id, req.user.user_id);
+  const data = await findDataById(req.params.id, req.user.userId);
   if (data) {
     res.json(data);
   } else {
@@ -28,7 +28,8 @@ const getDataById = async (req, res, next) => {
 };
 
 const postData = async (req, res, next) => {
-  const userId = req.user.user_id;
+  const userId = req.user.userId;
+  console.log('postData', req.user.userId);
   const result = await addData(req.body, userId);
   if (result.data_id) {
     res.status(201);
@@ -38,9 +39,10 @@ const postData = async (req, res, next) => {
   }
 };
 
+
 const putData = async (req, res, next) => {
   const dataId = req.params.id;
-  const userId = req.user.user_id;
+  const userId = req.user.userId;
   const result = await updateDataById(dataId, userId, req.body);
   if (result.error) {
     return next(customError(result.message, result.error));
@@ -49,7 +51,7 @@ const putData = async (req, res, next) => {
 };
 
 const deleteData = async (req, res, next) => {
-  const result = await deleteDataById(req.params.id, req.user.user_id);
+  const result = await deleteDataById(req.params.id, req.user.userId);
   if (result.error) {
     return next(customError(result.message, result.error));
   }

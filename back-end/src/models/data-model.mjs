@@ -53,12 +53,13 @@ const addData = async (data, userId) => {
   ];
   try {
     const rows = await promisePool.query(sql, params);
-    return {data_id: rows.insertId};
+    return {data_id: rows[0].insertId};
   } catch (e) {
     console.error('Error adding data:', e.message);
     return {error: e.message};
   }
 };
+
 
 const updateDataById = async (dataId, userId, dataData) => {
   try {

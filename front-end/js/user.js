@@ -14,11 +14,12 @@ document
     const age = formData.get('age');
     const gender = formData.get('gender');
 
-    // Get user token from localStorage
+    // Get user information from localStorage
     const token = localStorage.getItem('token');
-    console.log(localStorage);
+    console.log(token);
     if (!token) {
-      throw new Error('User token not found. Please log in.');
+      alert('User information not found. Please log in again.');
+      return;
     }
 
     // Add data
@@ -29,6 +30,9 @@ document
       age: age,
       gender: gender,
     };
+
+    // DEBUG: Check if request body is constructed correctly
+    console.log('Request Body:', data);
 
     // Send data to backend
     const url = 'http://127.0.0.1:3000/api/data';
@@ -43,15 +47,15 @@ document
 
     try {
       const response = await fetch(url, options);
-      const responseDataText = await response.text();
+      const responseDataText = await response.text(); // Log the response text
       console.log('Response text:', responseDataText); // Log the response text
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      alert('User information added successfully!');
-    } catch (error) {
+      window.location.href = 'logged-index.html';
+        } catch (error) {
       console.error('Error:', error);
-      alert('Failed to add information.');
+      alert('Failed to add data. Error details can be found in the console.');
     }
   });
