@@ -1,56 +1,46 @@
 //
 // GET USER DATA
-async function getUserProfile() {
+// Function to fetch user profile data
+async function fetchUserProfile() {
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    alert('User information not found. Please log in again.');
+    return;
+  }
+
+  const url = `http://127.0.0.1:3000/api/data`;
+  const options = {
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  };
+
   try {
-    // Get user token from localStorage
-    const token = localStorage.getItem('token');
-    if (!token) {
-      throw new Error('User token not found. Please log in.');
-    }
-
-    // Fetch user's profile data
-    const response = await fetch('http://127.0.0.1:3000/api/data', {
-      method: 'GET',
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch user profile data.');
-    }
-
+    const response = await fetch(url, options);
     const userData = await response.json();
 
-    // Update the HTML to display user profile data
-    document.getElementById('username').textContent = userData.username;
-    document.getElementById('height').textContent = userData.height;
-    document.getElementById('weight').textContent = userData.weight;
-    document.getElementById('age').textContent = userData.age;
-    document.getElementById('gender').textContent = userData.gender;
+    console.log(userData[0].username);
 
-    console.log(userData);
+    // Update UI with user profile data
+    document.getElementById('username').textContent = userData[0].username;
+    document.getElementById('height').textContent = userData[0].height;
+    document.getElementById('weight').textContent = userData[0].weight;
+    document.getElementById('age').textContent = userData[0].age;
+    document.getElementById('gender').textContent = userData[0].gender;
   } catch (error) {
-    console.error('Error:', error.message);
-    alert('Failed to fetch user profile data. Please try again.');
+    console.error('Error:', error);
+    alert(
+      'Failed to fetch user profile data. Error details can be found in the console.'
+    );
   }
 }
 
+// Call the function to fetch and display user profile data
+fetchUserProfile();
 
 
-
-
-
-
-
-
-
-
-
-
-
-// Call the function to fetch and display user profile data when the page loads
-window.addEventListener('load', getUserProfile);
 
 //
 // UPDATE ENTRY

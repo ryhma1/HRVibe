@@ -1,4 +1,42 @@
-import '../assets/css/main.css';
+//
+// GET USER DATA
+// Function to fetch user profile data
+async function fetchUserProfile() {
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    alert('User information not found. Please log in again.');
+    return;
+  }
+
+  const url = `http://127.0.0.1:3000/api/data`;
+  const options = {
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const userData = await response.json();
+
+    if (userData && userData.length > 0 && userData[0].username) {
+      // User has a username, redirect to a new page
+      window.location.href = 'logged-index.html'; // Replace 'newPage.html' with the URL of the page you want to redirect to
+      return;
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert(
+      'Failed to fetch user profile data. Error details can be found in the console.'
+    );
+  }
+}
+
+// Call the function to fetch and display user profile data
+fetchUserProfile();
+
 //
 // POST USER DATA
 document
@@ -54,7 +92,7 @@ document
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       window.location.href = 'logged-index.html';
-        } catch (error) {
+    } catch (error) {
       console.error('Error:', error);
       alert('Failed to add data. Error details can be found in the console.');
     }

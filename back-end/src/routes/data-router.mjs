@@ -23,9 +23,8 @@ dataRouter
     body('age').optional().isInt({min: 0, max: 120}),
     body('gender').optional().isString().isLength({min: 3, max: 100}),
     validationErrorHandler,
-    postData,
+    postData
   );
-
 
 dataRouter
   .route('/:id')

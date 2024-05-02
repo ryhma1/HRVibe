@@ -1,15 +1,15 @@
 import promisePool from '../utils/database.mjs';
 
-const listAllData = async () => {
-  try {
-    const [rows] = await promisePool.query('SELECT * FROM user_data');
-    // console.log('rows', rows);
-    return rows;
-  } catch (e) {
-    console.error('error', e.message);
-    return {error: e.message};
-  }
-};
+// const listAllData = async () => {
+//   try {
+//     const [rows] = await promisePool.query('SELECT * FROM user_data');
+//     // console.log('rows', rows);
+//     return rows;
+//   } catch (e) {
+//     console.error('error', e.message);
+//     return {error: e.message};
+//   }
+// };
 
 const listAllDataByUserId = async (id) => {
   try {
@@ -61,6 +61,7 @@ const addData = async (data, userId) => {
 };
 
 
+
 const updateDataById = async (dataId, userId, dataData) => {
   try {
     const params = [dataData, dataId, userId];
@@ -102,7 +103,7 @@ const deleteDataById = async (id, userId) => {
 };
 
 export {
-  listAllData,
+  // listAllData,
   listAllDataByUserId,
   findDataById,
   addData,
