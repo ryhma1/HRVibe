@@ -64,27 +64,29 @@ const addData = async (data, userId) => {
 
 const updateDataById = async (dataId, userId, dataData) => {
   try {
-    const params = [dataData, dataId, userId];
-    // format() function is used to include only the fields that exists
+    // format() function is used to include only the fields that exist
     // in the entryData object to the SQL query
     const sql = promisePool.format(
       `UPDATE user_data SET ?
        WHERE data_id=? AND user_id=?`,
-      params
+      [dataData, dataId, userId]
     );
-    const [result] = await promisePool.query(sql, params);
+    console.log(sql);
+    const [result] = await promisePool.query(sql);
     // console.log(result);
     if (result.affectedRows === 0) {
-      return {error: 404, message: 'Data not found'};
+      return { error: 404, message: 'Data not found' };
     }
-    return {message: 'Data updated', data_id: dataId};
+    return { message: 'Data updated', data_id: dataId };
   } catch (error) {
     // fix error handling
     // now duplicate entry error is generic 500 error, should be fixed to 400 ?
     console.error('updateDataById', error);
-    return {error: 500, message: 'db error'};
+    return { error: 500, message: 'db error' };
   }
 };
+
+
 
 const deleteDataById = async (id, userId) => {
   try {

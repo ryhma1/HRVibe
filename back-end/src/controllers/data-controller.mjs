@@ -44,6 +44,7 @@ const putData = async (req, res, next) => {
   const dataId = req.params.id;
   const userId = req.user.userId;
   const result = await updateDataById(dataId, userId, req.body);
+  // console.log(req.user.userId);
   if (result.error) {
     return next(customError(result.message, result.error));
   }

@@ -24,6 +24,16 @@ dataRouter
     body('gender').optional().isString().isLength({min: 3, max: 100}),
     validationErrorHandler,
     postData
+  )
+  .put(
+    authenticateToken,
+    body('username').optional().trim().isLength({min: 3, max: 20}).isString(),
+    body('height').optional().isInt({min: 1, max: 500}),
+    body('weight').optional().isInt({min: 1, max: 500}),
+    body('age').optional().isInt({min: 0, max: 120}),
+    body('gender').optional().isString().isLength({min: 3, max: 100}),
+    validationErrorHandler,
+    putData
   );
 
 dataRouter
@@ -33,18 +43,6 @@ dataRouter
     param('id', 'must be integer').isInt(),
     validationErrorHandler,
     getDataById
-  )
-  .put(
-    authenticateToken,
-    param('id', 'must be integer').isInt(),
-    // user_id is not allowed to be changed
-    body('username').optional().trim().isLength({min: 3, max: 20}).isString(),
-    body('height').optional().isInt({min: 0, max: 500}),
-    body('weight').optional().isInt({min: 0, max: 500}),
-    body('age').optional().isInt({min: 0, max: 120}),
-    body('gender').optional().isString().isLength({min: 3, max: 100}),
-    validationErrorHandler,
-    putData
   )
   .delete(
     authenticateToken,
