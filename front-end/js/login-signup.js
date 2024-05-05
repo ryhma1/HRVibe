@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'User created successfully! Please create an account to Kubios Cloud for further HRVibe functionalities including measurements, analysis and history. After this, log in using the Kubious Cloud account.'
           );
           window.open(
-            'https://analysis.kubioscloud.com/v2/portal/documentation/index.html',
+            'https://kubioscloud.auth.eu-west-1.amazoncognito.com/login?response_type=code&client_id=1h4rmoi5s66u2cliaqcpuejgpg&redirect_uri=https://analysis.kubioscloud.com/v1/portal/login&scope=openid%20profile%20email%20phone#kubioscloud-api-reference',
             '_blank'
           );
         } else {
