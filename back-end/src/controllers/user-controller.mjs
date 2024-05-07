@@ -47,7 +47,6 @@ const postUser = async (req, res, next) => {
 const putUser = async (req, res, next) => {
   // Get userinfo from req.user object extracted from token
   // Only user authenticated by token can update own data
-  // TODO: admin user can update any user (incl. user_level)
   const userId = req.user.user_id;
   const {password, email} = req.body;
   // hash password if included in request
@@ -66,7 +65,6 @@ const putUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
   // console.log('deleteUser', req.user, req.params.id);
-  // admin user can delete any user
   // user authenticated by token can delete itself
   if (req.user.user_level !== 'admin') {
     return next(customError('Unauthorized', 401));

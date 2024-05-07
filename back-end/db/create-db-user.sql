@@ -1,4 +1,4 @@
-CREATE USER 'miarant'@'localhost' IDENTIFIED BY 'hrmibe';
-GRANT ALL PRIVILEGES ON `hrvibe`.* TO 'miarant@'localhost';
+CREATE USER 'sil'@'localhost' IDENTIFIED BY 'hihi69';
+GRANT ALL PRIVILEGES ON `hrvibe`.* TO 'sil@'localhost';
 FLUSH PRIVILEGES;
 
