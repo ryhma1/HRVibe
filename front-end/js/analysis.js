@@ -1,0 +1,4 @@
+// GET THE LATEST DATA FROM KUBIOSCLOUD
+const url = 'http://127.0.0.1:3000/api/kubios';
+
+// GET PREVIOUS MEASUREMENTS

@@ -1,7 +1,7 @@
 /**
  * Authentication resource controller
  * @module controllers/auth-controller
- * @author silvava <silvava@metropolia.fi>
+ * @author miarant <miarant@metropolia.fi>
  * @requires jsonwebtoken
  * @requires bcryptjs
  * @requires dotenv

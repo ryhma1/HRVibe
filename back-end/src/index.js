@@ -5,6 +5,7 @@ import {fileURLToPath} from 'url';
 // import itemRouter from './routes/item-router.mjs';
 import userRouter from './routes/user-router.mjs';
 import dataRouter from './routes/data-router.mjs';
+import kubiosRouter from './routes/kubios-router.mjs';
 import cors from 'cors';
 import logger from './middlewares/logger.mjs';
 import authRouter from './routes/auth-router.mjs';
@@ -47,6 +48,9 @@ app.use('/api/users', userRouter);
 
 // User authentication
 app.use('/api/auth', authRouter);
+
+// Kubios API resource
+app.use('/api/kubios', kubiosRouter);
 
 // Default 404 not found
 app.use(notFoundHandler);
