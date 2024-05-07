@@ -1,16 +1,5 @@
 import promisePool from '../utils/database.mjs';
 
-// const listAllData = async () => {
-//   try {
-//     const [rows] = await promisePool.query('SELECT * FROM user_data');
-//     // console.log('rows', rows);
-//     return rows;
-//   } catch (e) {
-//     console.error('error', e.message);
-//     return {error: e.message};
-//   }
-// };
-
 const listAllDataByUserId = async (id) => {
   try {
     const sql = 'SELECT * FROM user_data WHERE user_id=?';
@@ -39,7 +28,7 @@ const findDataById = async (id, userId) => {
 };
 
 const addData = async (data, userId) => {
-  console.log("User ID:", userId);
+  console.log('User ID:', userId);
   const sql = `INSERT INTO user_data
                (user_id, username, height, weight, age, gender)
                VALUES (?, ?, ?, ?, ?, ?)`;
@@ -60,16 +49,6 @@ const addData = async (data, userId) => {
   }
 };
 
-
-// const updateDataById = async function (dataId) {
-//   const sql = promisePool.format(`UPDATE user_data SET ? WHERE user_id = ?`, [dataId])
-//   const rows = await promisePool.execute(sql);
-//   if (rows[0].affectedRows === 0) {
-//     return false;
-//   }
-//     return {message: 'succes'};
-// };
-
 const updateDataById = async (userId, dataData) => {
   try {
     const sql = promisePool.format(
@@ -81,16 +60,14 @@ const updateDataById = async (userId, dataData) => {
     const [result] = await promisePool.query(sql);
     // console.log(result);
     if (result.affectedRows === 0) {
-      return { error: 404, message: 'Data not found' };
+      return {error: 404, message: 'Data not found'};
     }
-    return { message: 'Data updated', data_id: dataId };
+    return {message: 'Data updated', data_id: dataId};
   } catch (error) {
     console.error('updateDataById', error);
-    return { error: 500, message: 'db error' };
+    return {error: 500, message: 'db error'};
   }
 };
-
-
 
 const deleteDataById = async (id, userId) => {
   try {
@@ -109,7 +86,6 @@ const deleteDataById = async (id, userId) => {
 };
 
 export {
-  // listAllData,
   listAllDataByUserId,
   findDataById,
   addData,
