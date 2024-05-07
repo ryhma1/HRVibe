@@ -13,7 +13,7 @@ export default defineConfig({
         history: resolve(__dirname, "history.html"),
         logged_about: resolve(__dirname, "logged-about.html"),
         logged_index: resolve(__dirname, "logged-index.html"),
-        logged_signup: resolve(__dirname, "logged-signup.html"),
+        login_signup: resolve(__dirname, "login-signup.html"),
         measure: resolve(__dirname, "measure.html"),
         profile: resolve(__dirname, "profile.html"),
         settings: resolve(__dirname, "settings.html"),
