@@ -23,7 +23,7 @@ async function fetchUserProfile() {
 
     if (userData && userData.length > 0 && userData[0].username) {
       // User has a username, redirect to a new page
-      window.location.href = 'logged-index.html'; // Replace 'newPage.html' with the URL of the page you want to redirect to
+      window.location.href = 'logged-index.html';
       return;
     }
   } catch (error) {

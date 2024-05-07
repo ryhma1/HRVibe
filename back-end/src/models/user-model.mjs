@@ -18,7 +18,6 @@ const selectUserById = async (id) => {
     const params = [id];
     const [rows] = await promisePool.query(sql, params);
     // console.log(rows);
-    // if nothing is found with the user id, result array is empty []
     if (rows.length === 0) {
       return {error: 404, message: 'user not found'};
     }
@@ -40,9 +39,7 @@ const insertUser = async (user, next) => {
     // console.log(result);
     return {message: 'new user created', user_id: result.insertId};
   } catch (error) {
-    // now duplicate entry error is generic 500 error, should be fixed to 400 ?
     console.error('insertUser', error);
-    // Error handler can be used directly from model, if next function is passed
     return next(new Error(error));
   }
 };
@@ -57,7 +54,6 @@ const updateUserById = async (user) => {
     console.log(result);
     return {message: 'user data updated', user_id: user.userId};
   } catch (error) {
-    // now duplicate entry error is generic 500 error, should be fixed to 400 ?
     console.error('updateUserById', error);
     return {error: 500, message: 'db error'};
   }
