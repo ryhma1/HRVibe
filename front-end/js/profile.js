@@ -30,11 +30,12 @@ async function fetchUserProfile() {
   }
 }
 
+
+// EDIT PROFILE DATA
 // Fetch user data and place it in the user profile
 async function placeProfileData() {
   try {
     const rawUserData = await fetchUserProfile(); // Fetch user profile data
-    const userId = rawUserData[0].id; // Assuming the user ID is available in the fetched data
     document.getElementById('username').textContent = rawUserData[0].username;
     document.getElementById('height').textContent = rawUserData[0].height;
     document.getElementById('weight').textContent = rawUserData[0].weight;
@@ -85,15 +86,16 @@ async function saveAccountDetails() {
     }
 
     const data = {
-      username,
-      height,
-      weight,
-      age,
-      gender,
+      username: username,
+      height: height,
+      weight: weight,
+      age: age,
+      gender: gender,
     };
 
     console.log('Request Body:', data);
 
+    // Send data to backend
     const url = 'http://127.0.0.1:3000/api/data';
     const options = {
       method: 'PUT',
@@ -103,6 +105,7 @@ async function saveAccountDetails() {
       },
       body: JSON.stringify(data),
     };
+
 
     const response = await fetch(url, options);
 

@@ -61,15 +61,23 @@ const addData = async (data, userId) => {
 };
 
 
+// const updateDataById = async function (dataId) {
+//   const sql = promisePool.format(`UPDATE user_data SET ? WHERE user_id = ?`, [dataId])
+//   const rows = await promisePool.execute(sql);
+//   if (rows[0].affectedRows === 0) {
+//     return false;
+//   }
+//     return {message: 'succes'};
+// };
 
-const updateDataById = async (dataId, userId, dataData) => {
+const updateDataById = async (userId, dataData) => {
   try {
     // format() function is used to include only the fields that exist
     // in the entryData object to the SQL query
     const sql = promisePool.format(
       `UPDATE user_data SET ?
        WHERE data_id=? AND user_id=?`,
-      [dataData, dataId, userId]
+      [dataData, userId]
     );
     console.log(sql);
     const [result] = await promisePool.query(sql);
