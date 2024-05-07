@@ -4,6 +4,8 @@
 async function fetchUserProfile() {
   const token = localStorage.getItem('token');
 
+  console.log(token);
+
   if (!token) {
     alert('User information not found. Please log in again.');
     return null; // Return null if token not found

@@ -13,7 +13,6 @@ const baseUrl = process.env.KUBIOS_API_URI;
 * @param {Response} res
 * @param {NextFunction} next
 */
-
 const getUserData = async (req, res, next) => {
   const {kubiosIdToken} = req.user;
   const headers = new Headers();
