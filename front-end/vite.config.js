@@ -20,6 +20,7 @@ export default defineConfig({
         user: resolve(__dirname, "user.html"),
       },
     },
+    assetsDir: 'static-assets'
   },
   // Public base path could be set here too:
   // base: '/~username/my-app/',
