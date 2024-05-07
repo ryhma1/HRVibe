@@ -106,7 +106,7 @@ Authorization: Bearer <token>
 [HRvibe](https://hyte-server.northeurope.cloudapp.azure.com)
 
 ### Git
-- [Front End, Back End & Testing](https://github.com/ryhma1/HRVibe)
+[Front End, Back End & Testing](https://github.com/ryhma1/HRVibe)
 
 
 <!--  -->
@@ -114,7 +114,7 @@ Authorization: Bearer <token>
 ## Database
 
 ### Structure
-![db](/readme-pics/VitalTrack-db-structure.png)
+![db](/back-end/db/hrvbie-db.png)
 
 <!--  -->
 
@@ -122,3 +122,4 @@ Authorization: Bearer <token>
 
 - Profile information editing.
 - KubiosCloud measurement data and information not available.
+- App not working on the server due to framework issues.
