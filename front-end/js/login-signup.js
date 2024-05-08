@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       evt.preventDefault();
       console.log('Creating user');
 
-      const url = '/api/users';
+      const url = 'http://127.0.0.1:3000/api/users';
 
       const form = document.querySelector('#signupForm');
       const email = form.querySelector('input[name=email]').value;
