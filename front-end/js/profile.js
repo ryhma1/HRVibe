@@ -123,6 +123,7 @@ async function saveAccountDetails() {
 // Call the function to fetch and display user profile data
 placeProfileData();
 
+// Fetch the profile data from Kubios
 async function fetchUserInfo() {
   const token = localStorage.getItem('token');
 
