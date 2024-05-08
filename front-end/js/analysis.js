@@ -44,23 +44,27 @@ async function displayUserData() {
       }
     }
     const {create_timestamp, result} = mostRecentMeasurement;
-    const {mean_hr_bpm, pns_index, sns_index} = result;
+    const {mean_hr_bpm, pns_index, sns_index, stress_index} = result;
+
+    // Round up the numbers
+    const roundedMeanHR = Math.ceil(mean_hr_bpm);
+    const roundedPNS = Math.ceil(pns_index);
+    const roundedSNS = Math.ceil(sns_index);
+    const roundedStress = Math.ceil(stress_index);
 
     // Generate HTML for the table
     let tableHTML = '<h2>User Data</h2><table>';
     tableHTML += `<tr><th>Date</th><td>${JSON.stringify(
       create_timestamp
     )}</td></tr>`;
-    tableHTML += `<tr><th>Mean Heart Rate (bpm)</th><td>${JSON.stringify(
-      mean_hr_bpm
-    )}</td></tr>`;
-    tableHTML += `<tr><th>PNS Index</th><td>${JSON.stringify(
-      pns_index
-    )}</td></tr>`;
-    tableHTML += `<tr><th>SNS Index</th><td>${JSON.stringify(
-      sns_index
-    )}</td></tr>`;
+    tableHTML += `<tr><th>Mean Heart Rate (bpm)</th><td>${roundedMeanHR.toFixed(1)}</td></tr>`;
+    tableHTML += `<tr><th>PNS Index</th><td>${roundedPNS.toFixed(1)}</td></tr>`;
+    tableHTML += `<tr><th>SNS Index</th><td>${roundedSNS.toFixed(1)}</td></tr>`;
+    tableHTML += `<tr><th>Stress Index</th><td>${roundedStress.toFixed(1)}</td></tr>`;
     tableHTML += '</table>';
+
+    // Add a button to go back to the previous page
+    tableHTML += '<button class="goBack" onclick="goBack()">Back</button>';
 
     // Set the HTML content of userDataDiv
     userDataDiv.innerHTML = tableHTML;
@@ -68,6 +72,11 @@ async function displayUserData() {
     // If userData is empty or does not contain measurements, display a message indicating no data available
     userDataDiv.innerHTML = '<h2>No data available</h2>';
   }
+}
+
+// Function to go back to the previous page
+function goBack() {
+  window.location.href = 'measure.html';
 }
 
 // Call functions to fetch and display data when the page loads

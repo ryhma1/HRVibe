@@ -189,4 +189,4 @@ async function displayUserInfo() {
 // Toggle user info display
 async function toggleInfo() {
   await displayUserInfo();
-};
+}

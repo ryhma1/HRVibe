@@ -2931,7 +2931,8 @@
 			opacity: 0.25;
 		}
 
-		.userInfo {
+		.userInfo,
+		.goBack {
 			-moz-appearance: none;
 			-webkit-appearance: none;
 			-ms-appearance: none;
