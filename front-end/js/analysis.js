@@ -46,21 +46,23 @@ async function displayUserData() {
     const {create_timestamp, result} = mostRecentMeasurement;
     const {mean_hr_bpm, pns_index, sns_index, stress_index} = result;
 
-    // Round up the numbers
-    const roundedMeanHR = Math.ceil(mean_hr_bpm);
-    const roundedPNS = Math.ceil(pns_index);
-    const roundedSNS = Math.ceil(sns_index);
-    const roundedStress = Math.ceil(stress_index);
+    // Parse the timestamp to separate date and time
+    const timestamp = new Date(create_timestamp);
+    const date = timestamp.toDateString();
+    const time = timestamp.toLocaleTimeString();
 
     // Generate HTML for the table
-    let tableHTML = '<h2>User Data</h2><table>';
-    tableHTML += `<tr><th>Date</th><td>${JSON.stringify(
-      create_timestamp
+    let tableHTML = '<h2>Latest Measurement</h2><table>';
+    tableHTML += `<tr><th>Date</th><td>${date}</td></tr>`;
+    tableHTML += `<tr><th>Time</th><td>${time}</td></tr>`;
+    tableHTML += `<tr><th>Mean Heart Rate (bpm)</th><td>${mean_hr_bpm.toFixed(
+      2
     )}</td></tr>`;
-    tableHTML += `<tr><th>Mean Heart Rate (bpm)</th><td>${roundedMeanHR.toFixed(1)}</td></tr>`;
-    tableHTML += `<tr><th>PNS Index</th><td>${roundedPNS.toFixed(1)}</td></tr>`;
-    tableHTML += `<tr><th>SNS Index</th><td>${roundedSNS.toFixed(1)}</td></tr>`;
-    tableHTML += `<tr><th>Stress Index</th><td>${roundedStress.toFixed(1)}</td></tr>`;
+    tableHTML += `<tr><th>PNS Index</th><td>${pns_index.toFixed(2)}</td></tr>`;
+    tableHTML += `<tr><th>SNS Index</th><td>${sns_index.toFixed(2)}</td></tr>`;
+    tableHTML += `<tr><th>Stress Index</th><td>${stress_index.toFixed(
+      2
+    )}</td></tr>`;
     tableHTML += '</table>';
 
     // Add a button to go back to the previous page
