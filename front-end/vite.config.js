@@ -17,14 +17,17 @@ export default defineConfig({
         measure: resolve(__dirname, "measure.html"),
         profile: resolve(__dirname, "profile.html"),
         user: resolve(__dirname, "user.html"),
-        // frameworks js files
-        jquery: resolve(__dirname, "static-assets/js/jquery.min.js"),
-        dropotron: resolve(__dirname, "static-assets/js/jquery.dropotron.min.js"),
-        scrollex: resolve(__dirname, "static-assets/js/jquery.scrollex.min.js"),
-        browser: resolve(__dirname, "static-assets/js/browser.min.js"),
-        breakpoints: resolve(__dirname, "static-assets/js/breakpoints.min.js"),
-        util: resolve(__dirname, "static-assets/js/util.js"),
-        main: resolve(__dirname, "static-assets/js/main.js"),
+
+
+        // // frameworks js files, didnt get it working with the /front-end so tried this
+
+        // jquery: resolve(__dirname, "static-assets/js/jquery.min.js"),
+        // dropotron: resolve(__dirname, "static-assets/js/jquery.dropotron.min.js"),
+        // scrollex: resolve(__dirname, "static-assets/js/jquery.scrollex.min.js"),
+        // browser: resolve(__dirname, "static-assets/js/browser.min.js"),
+        // breakpoints: resolve(__dirname, "static-assets/js/breakpoints.min.js"),
+        // util: resolve(__dirname, "static-assets/js/util.js"),
+        // main: resolve(__dirname, "static-assets/js/main.js"),
       },
     },
   },
