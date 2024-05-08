@@ -24,9 +24,6 @@ In this ReadMe you'll understand the basics of the API server on how it's works 
 `measure.html`
 ![measure.html](/back-end/readme-pics/measurements.png)
 
-`settings.html`
-![settings.html](/back-end/readme-pics/settings.png)
-
 `user.html`
 ![user.html](/back-end/readme-pics/user.png)
 
