@@ -1,0 +1,14 @@
+{"level":30,"time":"2024-05-13T00:58:29.550Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Listening on 57830"}
+(node:7444) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2024-05-13T00:58:30.013Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2024-05-13T00:58:31.625Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Adding browser to stack: chromium, version: 121.0.6167.57"}
+{"level":30,"time":"2024-05-13T00:58:31.629Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"End of node method newBrowser"}
+{"level":30,"time":"2024-05-13T00:58:31.629Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2024-05-13T00:58:31.639Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Start of node method newPage"}
+{"level":30,"time":"2024-05-13T00:58:31.639Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2024-05-13T00:58:31.673Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Changed active context"}
+{"level":30,"time":"2024-05-13T00:58:32.216Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Video path: undefined"}
+{"level":30,"time":"2024-05-13T00:58:32.217Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Changed active page"}
+{"level":30,"time":"2024-05-13T00:58:34.925Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"End of node method newPage"}
+{"level":30,"time":"2024-05-13T00:59:33.030Z","pid":7444,"hostname":"DESKTOP-E723449","msg":"Removed page=695599f7-65f1-4b9c-ab1e-e9d69d42b089 from context=38faf5c0-e053-4043-bc89-a1a6444da769 page stack"}

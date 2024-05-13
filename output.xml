@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-13T03:59:02.903429" rpa="false" schemaversion="5">
+<suite id="s1" name="Log-In-Wrong-Credentials" source="c:\Users\Owner\AOpiskelu\Hyte 1. vuosi\4.Periodi\Project\HRVibe\testaus\robot\testit\log-in\log-in-wrong-credentials.robot">
+<test id="s1-t1" name="Test Web Form" line="6">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-05-13T03:59:03.225796" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Owner\\AOpiskelu\\Hyte 1. vuosi\\4.Periodi\\Project\\HRVibe\\browser\\traces\\c6485cf8-c93d-4b4d-9628-c714287e87c0"}</msg>
+<msg time="2024-05-13T03:59:03.233098" level="INFO">Starting Browser process C:\Users\Owner\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using port 57871</msg>
+<msg time="2024-05-13T03:59:03.233320" level="INFO">Node startup parameters: ['node', 'C:\\Users\\Owner\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Browser\\wrapper\\index.js', '57871']</msg>
+<msg time="2024-05-13T03:59:05.824626" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Owner\\AOpiskelu\\Hyte 1. vuosi\\4.Periodi\\Project\\HRVibe\\browser\\traces\\c6485cf8-c93d-4b4d-9628-c714287e87c0"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-05-13T03:59:03.224490" elapsed="2.603790"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-05-13T03:59:07.556295" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/login-signup.html</msg>
+<msg time="2024-05-13T03:59:07.558313" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:5173/login-signup.html</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-05-13T03:59:05.855097" elapsed="1.704114"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2024-05-13T03:59:07.579398" level="INFO">Types the text 'testuser' in the given field.</msg>
+<arg>[id='j_email']</arg>
+<arg>${EMAIL}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-05-13T03:59:07.567839" elapsed="1.211139"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>[id='j_password']</arg>
+<arg>$PASSWORD</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2024-05-13T03:59:08.780968" elapsed="0.994443"/>
+</kw>
+<kw name="Click With Options" owner="Browser">
+<arg>[class="loginuser"]</arg>
+<arg>delay=2 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-05-13T03:59:09.778363" elapsed="2.121149"/>
+</kw>
+<status status="PASS" start="2024-05-13T03:59:03.222464" elapsed="8.679057"/>
+</test>
+<status status="PASS" start="2024-05-13T03:59:02.908181" elapsed="9.002298"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Log-In-Wrong-Credentials">Log-In-Wrong-Credentials</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
