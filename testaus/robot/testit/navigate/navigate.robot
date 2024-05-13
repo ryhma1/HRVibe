@@ -8,4 +8,11 @@ Navigate through pages
 
    
     Click With Options    xpath=//*[@id="nav"]/ul/li[2]/a
- 
+    Sleep    2s
+    Click With Options    xpath=//*[@id="nav"]/ul/li[2]/ul/li[2]/a
+    Sleep    2s
+    Click With Options    xpath=//*[@id="nav"]/ul/li[2]/ul/li[3]/a
+    Sleep    2s
+    Click With Options    xpath=//*[@id="nav"]/ul/li[3]/a
+    Sleep    2s
+    
